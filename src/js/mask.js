@@ -1,5 +1,7 @@
 $(document).ready(function(){
-  // $('.date-mask').mask('99.99.9999');
-  console.log('xex');
+  $("#birthDay").mask(
+    "99.99.9999", 
+    { placeholder: "ДД.ММ.ГГГГ" }
+  );
 });
 
