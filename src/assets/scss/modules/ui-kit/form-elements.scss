@@ -1,55 +1,31 @@
-.ui-kit-logo {
-  img {
-    margin: 30px 30px 65px;
-  }
+body {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
-.form-inputs-block {
-  .text-field, .dropdown {
+  .input-btn {
     width: 320px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20.44px;
-
-    .desc {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      text-transform: uppercase;
-      h3 {
-        margin-bottom: 5px;
-      }
-      p {
-        font-size: 12px;
-        line-height: 15px;
-        color: $dark-shade-50;
-        margin-bottom: 8px;
-      }
+    height: 44px;
+    padding: 12px 15px;
+    border: 1px solid $dark-shade-25;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: white;
+    color: $dark-shade-100;
+    &::placeholder {
+      color: $dark-shade-25;
     }
-
-    .input-btn {
-      width: 320px;
-      height: 44px;
-      padding: 12px 15px;
-      border: 1px solid $dark-shade-25;
-      box-sizing: border-box;
-      border-radius: 4px;
-      background-color: white;
-      color: $dark-shade-100;
-      &::placeholder {
-        color: $dark-shade-25;
-      }
-      &:hover, &:focus {
-        border: 1px solid $dark-shade-50;
-        color: $dark-shade-75;
-      }
-    }
-
-    .dropdown-toggle {
-      position: relative;
-      text-align: left;
+    &:hover, &:focus {
+      border: 1px solid $dark-shade-50;
       color: $dark-shade-75;
     }
+  }
+
+  .dropdown-toggle {
+    position: relative;
+    text-align: left;
+    color: $dark-shade-75;
     .caret {
       position: absolute;
       top: 18px;
@@ -59,5 +35,4 @@
       height: 44px;
       background: url("../img/css_sprites.png") no-repeat -42px -109px;
     }
-  }//Text field / Dropdown End
-}
+  }
