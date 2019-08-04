@@ -1,38 +1,37 @@
 body {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-  .input-btn {
-    width: 320px;
-    height: 44px;
-    padding: 12px 15px;
-    border: 1px solid $dark-shade-25;
-    box-sizing: border-box;
-    border-radius: 4px;
-    background-color: white;
-    color: $dark-shade-100;
-    &::placeholder {
-      color: $dark-shade-25;
-    }
-    &:hover, &:focus {
-      border: 1px solid $dark-shade-50;
-      color: $dark-shade-75;
-    }
+.input-btn {
+  width: 320px;
+  height: 44px;
+  padding: 12px 15px;
+  border: 1px solid $dark-shade-25;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: white;
+  color: $dark-shade-100;
+  &::placeholder {
+    color: $dark-shade-25;
   }
-
-  .dropdown-toggle {
-    position: relative;
-    text-align: left;
+  &:hover, &:focus {
+    border: 1px solid $dark-shade-50;
     color: $dark-shade-75;
-    .caret {
-      position: absolute;
-      top: 18px;
-      right: -16px;
-      display: block;
-      width: 44px;
-      height: 44px;
-      background: url("../img/css_sprites.png") no-repeat -42px -109px;
-    }
   }
+}
+
+.dropdown-toggle {
+  position: relative;
+  text-align: left;
+  color: $dark-shade-75;
+  .caret {
+    position: absolute;
+    top: 18px;
+    right: -16px;
+    display: block;
+    width: 44px;
+    height: 44px;
+    background: url("../img/css_sprites.png") no-repeat -42px -109px;
+  }
+}
