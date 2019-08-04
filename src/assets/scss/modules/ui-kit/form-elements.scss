@@ -35,3 +35,14 @@ body {
     background: url("../img/css_sprites.png") no-repeat -42px -109px;
   }
 }
+
+input[type="date"] {
+  color: $dark-shade-25;
+  font-family: $mainFont;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  &::-webkit-inner-spin-button,
+  &::-webkit-calendar-picker-indicator,
+  &::-webkit-clear-button { display: none; }
+}
