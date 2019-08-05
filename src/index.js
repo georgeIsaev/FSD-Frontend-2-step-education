@@ -7,7 +7,7 @@ import '../node_modules/air-datepicker/dist/js/datepicker.min.js'
 import '../node_modules/air-datepicker/dist/css/datepicker.min.css'
 
 //JS
-import './js/mask'
+import './js/form-elements'
 // SCSS
 import './assets/scss/main.scss'
 
