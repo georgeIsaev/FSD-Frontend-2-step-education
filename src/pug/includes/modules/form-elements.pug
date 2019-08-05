@@ -1,7 +1,33 @@
-.ui-element
-  input(class="input-btn", type="text", placeholder="Email")
-.ui-element
-  button(class="input-btn dropdown-toggle", type="button") Сколько гостей
-    span.caret
-.ui-element
-  input(id="birthDay" class="input-btn", type='date')
+mixin date-dropdown(caption_start, caption_end)
+  .form-date-dropdown
+    .date-dropdown-start
+      label.form-element-caption= caption_start
+      i.glyphicon.glyphicon-down
+      input.input-btn.datepicker-here(id="date-start" type="text" name="data" placeholder="ДД.ММ.ГГГГ" data-range="true" data-multiple-dates-separator=" - ")
+    .date-dropdown-end
+      label.form-element-caption= caption_end
+      i.glyphicon.glyphicon-down
+      input.input-btn(id="date-end" type="text" name="data" placeholder="ДД.ММ.ГГГГ")
+
+mixin text-field(caption, placeholder)
+  .form-text-field
+    lable.form-element-caption= caption
+    input.input-btn(type="text" name="data" placeholder= placeholder)
+
+mixin dropdown(caption, btn_caption)
+  .form-dropdown
+    lable.form-element-caption= caption
+    button.input-btn.dropdown-toggle(type="button")= btn_caption
+      span.glyphicon.glyphicon-down
+
+mixin masked-text-field(caption, placeholder)
+  .masked-text-field
+    lable.form-element-caption= caption
+    input.input-btn.date(type="text" name="data" placeholder= placeholder)
+
+.ui-kit
+  
+  +text-field("Text Field", "Email")
+  +dropdown("Dropdown", "Сколько Гостей")
+  +masked-text-field("Masked Text Field", "ДД.ММ.ГГГГ")
+  +date-dropdown("Date Dropdown", "Date Dropdown")

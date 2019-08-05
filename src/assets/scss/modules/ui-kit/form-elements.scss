@@ -1,6 +1,31 @@
-body {
+.ui-kit {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.glyphicon {
+  position: absolute;
+  top: 38px;
+  height: 8px;
+  pointer-events: none;
+}
+
+.glyphicon-down {
+  right: 16px;
+  width: 13px;
+  background: url("../img/css_sprites.png") no-repeat -42px -109px;
+}
+
+.form-element-caption {
+  display: block;
+  font-family: $mainFont;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: $dark-shade-100;
+  margin-bottom: 5px;
 }
 
 .input-btn {
@@ -11,11 +36,13 @@ body {
   box-sizing: border-box;
   border-radius: 4px;
   background-color: white;
-  color: $dark-shade-100;
+  color: $dark-shade-75;
   &::placeholder {
+    font-style: normal;
     color: $dark-shade-25;
   }
-  &:hover, &:focus {
+  &:hover, 
+  &:focus {
     border: 1px solid $dark-shade-50;
     color: $dark-shade-75;
   }
@@ -25,24 +52,33 @@ body {
   position: relative;
   text-align: left;
   color: $dark-shade-75;
-  .caret {
-    position: absolute;
+  .glyphicon {
     top: 18px;
-    right: -16px;
-    display: block;
-    width: 44px;
-    height: 44px;
-    background: url("../img/css_sprites.png") no-repeat -42px -109px;
   }
 }
 
-input[type="date"] {
+.date {
   color: $dark-shade-25;
-  font-family: $mainFont;
-  font-size: 14px;
-  line-height: 24px;
-  text-transform: uppercase;
-  &::-webkit-inner-spin-button,
-  &::-webkit-calendar-picker-indicator,
-  &::-webkit-clear-button { display: none; }
+  &:focus,
+  &:hover {
+    color: $dark-shade-75;
+  }
+}
+
+.form-date-dropdown {
+  display: flex;
+  flex-direction: row;
+  .date-dropdown-start {
+    position: relative;
+    margin-right: 20px;
+  }
+  .date-dropdown-end {
+    position: relative;
+  }
+  .input-btn {
+    width: 150px;
+    &::placeholder {
+      color: $dark-shade-75;
+    }
+  }
 }

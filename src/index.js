@@ -1,10 +1,15 @@
 //JQuery and JQuery Plugins
 import 'jquery'
 import 'popper.js'
-import 'jquery-mask-plugin'
+
+// ---PLUGINS---
+// jquery-masked-input
+import '../node_modules/jquery.maskedinput/src/jquery.maskedinput'
 // air-datepicker
 import '../node_modules/air-datepicker/dist/js/datepicker.min.js'
 import '../node_modules/air-datepicker/dist/css/datepicker.min.css'
+// ---PLUGINS END---
+
 
 //JS
 import './js/form-elements'
