@@ -7,14 +7,20 @@
 .glyphicon {
   position: absolute;
   top: 38px;
-  height: 8px;
+  right: 16px;
   pointer-events: none;
 }
 
 .glyphicon-down {
-  right: 16px;
   width: 13px;
+  height: 8px;
   background: url("../img/css_sprites.png") no-repeat -42px -109px;
+}
+
+.glyphicon-next {
+  width: 18px;
+  height: 18px;
+  background: url("../img/css_sprites.png") no-repeat -51px -70px;
 }
 
 .form-element-caption {
@@ -36,9 +42,13 @@
   box-sizing: border-box;
   border-radius: 4px;
   background-color: white;
+  font-family: $mainFont;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 24px;
   color: $dark-shade-75;
   &::placeholder {
-    font-style: normal;
     color: $dark-shade-25;
   }
   &:hover, 
@@ -51,7 +61,6 @@
 .dropdown-toggle {
   position: relative;
   text-align: left;
-  color: $dark-shade-75;
   .glyphicon {
     top: 18px;
   }
@@ -76,9 +85,35 @@
     position: relative;
   }
   .input-btn {
-    width: 150px;
+    width: 150px;  
+    line-height: 24px;
     &::placeholder {
       color: $dark-shade-75;
     }
   }
+}
+
+.form-filter-date-dropdown {
+  position: relative;
+  width: 266px;
+  .input-btn {
+    width: 266px;
+    text-transform: lowercase;
+  }
+}
+
+.form-subscription-text-field {
+  position: relative;
+  width: 266px;
+  .input-btn {
+    width: 266px;
+  }
+  .glyphicon {
+    top: 33px;
+    right: 13px;
+  }
+}
+
+.isSelectionRoom {
+  width: 266px;
 }

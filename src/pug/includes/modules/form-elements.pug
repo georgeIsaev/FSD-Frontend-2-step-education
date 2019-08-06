@@ -1,33 +1,77 @@
-mixin date-dropdown(caption_start, caption_end)
-  .form-date-dropdown
-    .date-dropdown-start
-      label.form-element-caption= caption_start
-      i.glyphicon.glyphicon-down
-      input.input-btn.datepicker-here(id="date-start" type="text" name="data" placeholder="ДД.ММ.ГГГГ" data-range="true" data-multiple-dates-separator=" - ")
-    .date-dropdown-end
-      label.form-element-caption= caption_end
-      i.glyphicon.glyphicon-down
-      input.input-btn(id="date-end" type="text" name="data" placeholder="ДД.ММ.ГГГГ")
-
 mixin text-field(caption, placeholder)
   .form-text-field
     lable.form-element-caption= caption
     input.input-btn(type="text" name="data" placeholder= placeholder)
 
-mixin dropdown(caption, btn_caption)
+mixin dropdown(options)
+  -
+    var captionClassName = "form-element-caption"
+    var btn_captionClassName = "input-btn dropdown-toggle"
+    btn_captionClassName += options.isSelectionRoom ? " isSelectionRoom" : ""
   .form-dropdown
-    lable.form-element-caption= caption
-    button.input-btn.dropdown-toggle(type="button")= btn_caption
+    lable(class= captionClassName)= options.caption
+    button(class= btn_captionClassName, type="button")= options.btn_caption
       span.glyphicon.glyphicon-down
 
 mixin masked-text-field(caption, placeholder)
-  .masked-text-field
+  .form-masked-text-field
     lable.form-element-caption= caption
     input.input-btn.date(type="text" name="data" placeholder= placeholder)
 
+mixin date-dropdown(caption_start, caption_end)
+  .form-date-dropdown
+    .date-dropdown-start
+      label.form-element-caption= caption_start
+      i.glyphicon.glyphicon-down
+      input.input-btn.datepicker-here(id="date-start" type="text" name="data" placeholder="ДД.ММ.ГГГГ")
+    .date-dropdown-end
+      label.form-element-caption= caption_end
+      i.glyphicon.glyphicon-down
+      input.input-btn(id="date-end" type="text" name="data" placeholder="ДД.ММ.ГГГГ")
+
+mixin filter-date-dropdown(caption)
+  .form-filter-date-dropdown
+    label.form-element-caption= caption
+    i.glyphicon.glyphicon-down
+    input.input-btn.datepicker-here(id="date-filter" type="text" name="data")
+
+mixin subscription-text-field(caption, placeholder)
+  .form-subscription-text-field
+    lable.form-element-caption= caption
+    i.glyphicon.glyphicon-next
+    input.input-btn(type="text" name="data" placeholder= placeholder)
+
+//- +quantity-dropdown(options)(id="guests-quantity" class="guests || rooms")
+mixin quantity-dropdown(items)
+  .iqdropdown
+    p.iqdropdown-selection Сколько гостей
+    .iqdropdown-menu
+      - for (let i = 0; i < items.length; i++){
+        .iqdropdown-menu-option(
+          data-id= items[i].dataID
+          data-mincount= items[i].minCount || 0
+          data-maxcount= items[i].maxCount || 9
+          data-defaultcount= items[i].defaultcount || items[i].minCount || 0
+        )
+          div
+            p.iqdropdown-item= items[i].caption
+      - }
+      .iqdropdown-menu-buttons
+        button.btn-clear Очистить
+        button.btn-apply Применить 
+
 .ui-kit
-  
+  -
+    var items = [
+      {caption: 'взрослые', dataID: 'adults', defaultCount: 0},
+      {caption: 'дети', dataID: 'children', defaultCount: 0},
+      {caption: 'младенцы', dataID: 'infant', defaultCount: 0}
+    ]
   +text-field("Text Field", "Email")
-  +dropdown("Dropdown", "Сколько Гостей")
+  +dropdown({caption: "Dropdown", btn_caption: "Сколько Гостей", isSelectionRoom: false})
   +masked-text-field("Masked Text Field", "ДД.ММ.ГГГГ")
   +date-dropdown("Date Dropdown", "Date Dropdown")
+  +filter-date-dropdown("Filter Date Dropdown")
+  +subscription-text-field("Subscription Text Field", "Email")
+  +dropdown({caption: "Dropdown", btn_caption: "2 спальни, 2 кровати...", isSelectionRoom: true})
+  +quantity-dropdown(items)

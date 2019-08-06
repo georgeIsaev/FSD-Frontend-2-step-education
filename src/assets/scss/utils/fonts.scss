@@ -7,6 +7,14 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url('/assets/fonts/Montserrat/Montserrat-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
-  src: url('/assets/fonts/Quicksand/Quicksand-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */    
+  src: url('/assets/fonts/Montserrat/Montserrat-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */    
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url('/assets/fonts/Montserrat/Montserrat-Medium.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
 }
