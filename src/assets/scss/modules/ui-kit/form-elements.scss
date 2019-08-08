@@ -17,6 +17,12 @@
   background: url("../img/css_sprites.png") no-repeat -42px -109px;
 }
 
+.glyphicon-up {
+  width: 13px;
+  height: 8px;
+  background: url("../img/css_sprites.png") no-repeat -10px -109px;
+}
+
 .glyphicon-next {
   width: 18px;
   height: 18px;
@@ -116,4 +122,102 @@
 
 .isSelectionRoom {
   width: 266px;
+}
+
+.iqdropdown {
+  &-menu{
+    display: none;
+    width: 320px;
+    padding: 13px 7px 13px 15px;
+    border: 1px solid $dark-shade-50;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-top: -1px;
+  }
+  .menu-open {
+    display: block;
+  }
+
+  .input-btn {
+    position: relative;
+    text-align: left;
+    line-height: 18px;
+    padding-right: 44px;
+    &:focus {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    .glyphicon {
+      top: 18px;
+    }
+  }
+
+  &-menu-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 7px;
+  }
+  
+  &-item-display,
+  &-item-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: $mainFont;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $dark-shade-100;
+  }
+  &-item-controls {
+    width: 92px;
+    .button-decrement,
+    .button-increment {
+      width: 30px;
+      height: 30px;
+      border: 1px solid $dark-shade-50;
+      border-radius: 50%;
+      background-color: white;
+      background: url("../img/css_sprites.png") no-repeat -146px 0px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .button-decrement {
+      background: url("../img/css_sprites.png") no-repeat -145px -25px;
+    }
+  }
+
+  &-menu-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin-top: 12px;
+    .iq-button {
+      font-family: $mainFont;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      padding: 0;
+      background-color: white;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .btn-clear {
+      display: none;
+      color: $dark-shade-50;
+    }
+    .btn-apply {
+      color: $purple;
+    }
+  }
+
 }

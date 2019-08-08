@@ -10,7 +10,6 @@ import '../node_modules/air-datepicker/dist/js/datepicker.min.js'
 import '../node_modules/air-datepicker/dist/css/datepicker.min.css'
 // item-quantity-dropdown
 import '../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.js'
-import '../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.css'
 // ---PLUGINS END---
 
 
