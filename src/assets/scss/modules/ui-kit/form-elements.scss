@@ -143,10 +143,7 @@
     text-align: left;
     line-height: 18px;
     padding-right: 44px;
-    &:focus {
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+    border-radius: 4px;
     &:hover {
       cursor: pointer;
     }
@@ -190,6 +187,7 @@
     }
 
     .button-decrement {
+      border-color: $dark-shade-25;
       background: url("../img/css_sprites.png") no-repeat -145px -25px;
     }
   }

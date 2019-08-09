@@ -19,78 +19,6 @@ $(document).ready(function(){
     multipleDatesSeparator: ' - ',
     dateFormat: 'dd M'
   })
-
-  
-  // let iqdropdownSelection = $('.iqdropdown-selection')
-  // const globalItemCount = {
-  //       adults: 0, 
-  //       children: 0,
-  //       infant: 0
-  //     }
-  // let clearFlag = false
-
-  // $('.iqdropdown').iqDropdown({
-  //   maxItems: 9,
-  //   minItems: 0,
-  //   selectionText: 'гость',
-  //   textPlural: 'гостей',
-  //   controls: {
-  //     position: 'right',
-  //     displayCls: 'iqdropdown-item-display',
-  //     controlsCls: 'iqdropdown-item-controls',
-  //     counterCls: 'counter'
-  //   },
-  //   // fires when an item quantity changes
-  //   onChange: (id, count, totalItems) => {
-  //     const adChilCount = globalItemCount.adults + globalItemCount.children
-  //     let infantCount = globalItemCount.infant
-  //     console.log(id, count, totalItems)
-  //     if (adChilCount == 1){
-  //       iqdropdownSelection.html(adChilCount + ' гость')
-  //     } else if (adChilCount > 1 && adChilCount < 5 ){
-  //       iqdropdownSelection.html(adChilCount + ' гостя')
-  //     } else if (adChilCount > 4 || adChilCount == 0){
-  //       iqdropdownSelection.html(adChilCount + ' гостей')
-  //     } else {
-  //       iqdropdownSelection.html('Сколько гостей')
-  //     }
-      
-  //     if (infantCount == 1){
-  //       iqdropdownSelection.html(iqdropdownSelection.html() + ', ' + infantCount + ' младенец')
-  //     } else if (infantCount > 1 && infantCount < 5 ){
-  //       iqdropdownSelection.html(iqdropdownSelection.html() + ', ' + infantCount + ' младенеца')
-  //     } else if (infantCount > 4 ){
-  //       iqdropdownSelection.html(iqdropdownSelection.html() +', ' + infantCount + ' младенецев')
-  //     } 
-  //   },
-  //   // return false to prevent an item decrement
-  //   beforeDecrement: (id, itemCount) => {
-  //     globalItemCount[id]--
-  //     return true
-  //   },
-  //   // return false to prevent an item increment
-  //   beforeIncrement: (id, itemCount) => {
-  //     globalItemCount[id]++
-  //     return true
-  //   }
-  // })
-  // $('.iqdropdown-selection').html('Сколько гостей')
-
-  // function clear (flag) {
-  //   if (flag) {
-  //     globalItemCount['adults'] = 0
-  //     globalItemCount['children'] = 0
-  //     globalItemCount['infant'] = 0
-  //     clearFlag = false
-  //   }
-  // }
-  // $('.btn-clear').click(()=>{
-  //   console.log(globalItemCount)
-  //   clearFlag = true
-  //   clear (clearFlag)
-  //   $('.counter').html('0')
-  //   $('.iqdropdown-selection').html('Сколько гостей')
-  // })
 })
 
 
@@ -148,6 +76,7 @@ $(document).ready(() => {
     },
     // fires when an item quantity changes
     onChange: (id, count, totalItems) => {
+      console.log(id, count, totalItems)
       const sumGuest = iqdrop['item1'] + iqdrop['item2']
       let textDrop = '';
       if((sumGuest >= 5) || (sumGuest == 0)){
@@ -167,7 +96,16 @@ $(document).ready(() => {
       }
       
       $('.iqdropdown-selection').html(textDrop + '<span class="glyphicon glyphicon-up"></span>')
-
+      if (count > 0){
+        $(`[data-id=${id}]`).find('.button-decrement').css('border-color', 'rgba(31, 32, 65, 0.5)')
+      } else {
+        $(`[data-id=${id}]`).find('.button-decrement').css('border-color', 'rgba(31, 32, 65, 0.25)')
+      }
+      if (totalItems == 9) {
+        $('.iqdropdown-menu-option').find('.button-increment').css('border-color', 'rgba(31, 32, 65, 0.25)')
+      } else {
+        $('.iqdropdown-menu-option').find('.button-increment').css('border-color', 'rgba(31, 32, 65, 0.5)')
+      }
       if (totalItems != 0){
         $('.btn-clear').css('display', 'block')
       } else {
@@ -183,7 +121,7 @@ $(document).ready(() => {
         itemCount['item3'] = 0
         flagZerro = false
       } else if (totalCount > 0) {
-        iqdrop[id] = itemCount [id] - 1
+        iqdrop[id] = itemCount[id] - 1
         return true
       }
     },
@@ -195,10 +133,10 @@ $(document).ready(() => {
         itemCount['item2'] = 0
         itemCount['item3'] = 0
         flagZerro = false
-        iqdrop[id] = itemCount [id] + 1
+        iqdrop[id] = itemCount[id] + 1
         return true 
       } else if (totalCount < 10){
-        iqdrop[id] = itemCount [id] + 1
+        iqdrop[id] = itemCount[id] + 1
         return true 
       }
     }
@@ -216,17 +154,25 @@ $(document).ready(() => {
       'border-bottom-right-radius': '0',
       'border-bottom-left-radius': '0'
     })
+    $('.iqdropdown-menu-option').find('.button-decrement').css('border-color', 'rgba(31, 32, 65, 0.25)')
     $('.btn-clear').css('display', 'none')
     event.preventDefault
   })
 
   $('#iqOpen').click((event) => {
     $('.iqdropdown-menu').toggleClass('menu-open')
-    $('.iqdropdown').find('.input-btn').css({
-      'border-color': 'rgba(31, 32, 65, 0.5)',
-      'border-bottom-right-radius': '0',
-      'border-bottom-left-radius': '0'
-    })
+    if ($('.iqdropdown-menu').hasClass('menu-open')){
+      $('.iqdropdown').find('.input-btn').css({
+        'border-color': 'rgba(31, 32, 65, 0.5)',
+        'border-bottom-right-radius': '0',
+        'border-bottom-left-radius': '0'
+      })
+    } else {
+      $('.iqdropdown').find('.input-btn').css({
+        'border-color': 'rgba(31, 32, 65, 0.5)',
+        'border-radius': '4px'
+      })
+    }
     toggleGlyphicon ()
     event.preventDefault;
   })
@@ -239,6 +185,10 @@ $(document).ready(() => {
     if ($('.iqdropdown-menu').hasClass('menu-open')){
       toggleGlyphicon ()
       $('.iqdropdown-menu').removeClass('menu-open')
+      $('.iqdropdown').find('.input-btn').css({
+        'border-color': 'rgba(31, 32, 65, 0.5)',
+        'border-radius': '4px'
+      })
     }
     event.stopPropagation()
   })
