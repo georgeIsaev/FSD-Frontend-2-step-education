@@ -120,12 +120,8 @@
   }
 }
 
-.isSelectionRoom {
-  width: 266px;
-}
-
 .iqdropdown {
-  &-menu{
+  &-menu {
     display: none;
     width: 320px;
     padding: 13px 7px 13px 15px;
@@ -217,5 +213,13 @@
       color: $purple;
     }
   }
+}
 
+.isSelectionRooms {
+  .input-btn {
+    width: 266px;
+  }
+  .iqdropdown-menu{
+    width: 266px;
+  }
 }

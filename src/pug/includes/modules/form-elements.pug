@@ -3,16 +3,6 @@ mixin text-field(caption, placeholder)
     lable.form-element-caption= caption
     input.input-btn(type="text" name="data" placeholder= placeholder)
 
-mixin dropdown(options)
-  -
-    var captionClassName = "form-element-caption"
-    var btn_captionClassName = "input-btn dropdown-toggle"
-    btn_captionClassName += options.isSelectionRoom ? " isSelectionRoom" : ""
-  .form-dropdown
-    lable(class= captionClassName)= options.caption
-    button(class= btn_captionClassName, type="button")= options.btn_caption
-      span.glyphicon.glyphicon-down
-
 mixin masked-text-field(caption, placeholder)
   .form-masked-text-field
     lable.form-element-caption= caption
@@ -42,10 +32,10 @@ mixin subscription-text-field(caption, placeholder)
     input.input-btn(type="text" name="data" placeholder= placeholder)
 
 //- +quantity-dropdown(options)(id="guests-quantity" class="guests || rooms")
-mixin quantity-dropdown(items)
-  .iqdropdown
+mixin quantity-dropdown(items, lable)
+  .iqdropdown&attributes(attributes)
     lable.form-element-caption Dropdown
-    button#iqOpen.iqdropdown-selection.input-btn Сколько гостей
+    button.iqdropdown-selection.input-btn= lable
       span.glyphicon.glyphicon-down
     .iqdropdown-menu
       - for (let i = 0; i < items.length; i++){
@@ -58,21 +48,23 @@ mixin quantity-dropdown(items)
           div
             p.iqdropdown-item= items[i].caption
       - }
-      .iqdropdown-menu-buttons
-        button.btn-apply.iq-button Применить 
-        button.btn-clear.iq-button Очистить
 
 .ui-kit
   -
-    var items = [
-      {caption: 'взрослые', dataID: 'item1', defaultCount: 0},
-      {caption: 'дети', dataID: 'item2', defaultCount: 0},
-      {caption: 'младенцы', dataID: 'item3', defaultCount: 0}
+    var guests = [
+      {caption: 'взрослые', dataID: 'adults', defaultCount: 0},
+      {caption: 'дети', dataID: 'children', defaultCount: 0},
+      {caption: 'младенцы', dataID: 'babies', defaultCount: 0}
+    ]
+    var rooms = [
+      {caption: 'спальни', dataID: 'bedrooms', defaultCount: 0},
+      {caption: 'кровати', dataID: 'beds', defaultCount: 0},
+      {caption: 'ванные комнаты', dataID: 'bathrooms', defaultCount: 0}
     ]
   +text-field("Text Field", "Email")
   +masked-text-field("Masked Text Field", "ДД.ММ.ГГГГ")
   +date-dropdown("Date Dropdown", "Date Dropdown")
   +filter-date-dropdown("Filter Date Dropdown")
   +subscription-text-field("Subscription Text Field", "Email")
-  +dropdown({caption: "Dropdown", btn_caption: "2 спальни, 2 кровати...", isSelectionRoom: true})
-  +quantity-dropdown(items)
+  +quantity-dropdown(rooms, "Сколько комнат")(class="isSelectionRooms")
+  +quantity-dropdown(guests, "Сколько гостей")(class="isSelectionGuests")
