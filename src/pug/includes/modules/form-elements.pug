@@ -49,10 +49,12 @@ mixin quantity-dropdown(items, label, caption)
               p.iqdropdown-item= items[i].text
       - }
 
-mixin expandable-checkbox-list(caption, list)
-  .form-expandable-checkbox-list
+mixin expandable-checkbox-list(caption, list, modClass)
+  .form-expandable-checkbox-list(class= modClass)
     label.form-element-caption= caption
-      i.glyphicon
+      - if (modClass == 'isExpandable'){
+          i.glyphicon
+      - }
     .expandable-checkbox-menu
       - for (let i = 0; i < list.length; i++){
           .checkbox
@@ -82,6 +84,11 @@ mixin expandable-checkbox-list(caption, list)
       {id: 'tv2', name: 'includ', value: 'check7', text: 'Телевизор'},
       {id: 'shampoo2', name: 'includ', value: 'check8', text: 'Шампунь'}
     ]
+    var rulesList = [
+      {id: 'isSmoke', name: 'includ', value: 'check1', text: 'Можно курить'},
+      {id: 'isPets', name: 'includ', value: 'check2', text: 'Можо с питомцами'},
+      {id: 'isGuests', name: 'includ', value: 'check3', text: 'Можно приглосить гостей (до 10 человек)'}
+    ]
   +text-field("Text Field", "Email")
   +masked-text-field("Masked Text Field", "ДД.ММ.ГГГГ")
   +date-dropdown("Date Dropdown", "Date Dropdown")
@@ -89,4 +96,5 @@ mixin expandable-checkbox-list(caption, list)
   +subscription-text-field("Subscription Text Field", "Email")
   +quantity-dropdown(rooms, "Сколько комнат", "Dropdown")(class="isSelectionRooms")
   +quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
-  +expandable-checkbox-list("Expandable checkbox list", includingList)
+  +expandable-checkbox-list("Expandable checkbox list", includingList, 'isExpandable')
+  +expandable-checkbox-list("Checkbox buttons", rulesList)

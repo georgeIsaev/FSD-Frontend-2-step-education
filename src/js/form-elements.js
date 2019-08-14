@@ -294,8 +294,8 @@ $(document).ready(() => {
 // Expandable checkbox list
 
 function openCheckboxList () {
-  let cbOpener = $('.form-expandable-checkbox-list').find('.form-element-caption')
-  let hiddenList = $('.form-expandable-checkbox-list').find('.expandable-checkbox-menu')
+  let cbOpener = $('.isExpandable').find('.form-element-caption')
+  let hiddenList = $('.isExpandable').find('.expandable-checkbox-menu')
   cbOpener.click((event) => {
     if(hiddenList.css('display') == 'none'){
       hiddenList.css('display', 'block')

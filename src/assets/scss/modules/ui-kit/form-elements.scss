@@ -225,9 +225,9 @@
 }
 
 .form-expandable-checkbox-list {
+  width: 230px;
   .form-element-caption {
     position: relative;
-    width: 266px;
     margin: 0;
     cursor: pointer;
     .glyphicon{
@@ -242,7 +242,7 @@
   }
 
   .expandable-checkbox-menu {
-    display: none;
+    display: block;
   }
 
   .checkbox {
@@ -302,3 +302,9 @@
   }
 }
 
+.isExpandable {
+  width: 266px;
+  .expandable-checkbox-menu {
+    display: none;
+  }
+}
