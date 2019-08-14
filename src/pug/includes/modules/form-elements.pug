@@ -1,11 +1,11 @@
 mixin text-field(caption, placeholder)
   .form-text-field
-    lable.form-element-caption= caption
+    label.form-element-caption= caption
     input.input-btn(type="text" name="data" placeholder= placeholder)
 
 mixin masked-text-field(caption, placeholder)
   .form-masked-text-field
-    lable.form-element-caption= caption
+    label.form-element-caption= caption
     input.input-btn.date(type="text" name="data" placeholder= placeholder)
 
 mixin date-dropdown(caption_start, caption_end)
@@ -27,44 +27,66 @@ mixin filter-date-dropdown(caption)
 
 mixin subscription-text-field(caption, placeholder)
   .form-subscription-text-field
-    lable.form-element-caption= caption
+    label.form-element-caption= caption
     i.glyphicon.glyphicon-next
     input.input-btn(type="text" name="data" placeholder= placeholder)
 
 //- +quantity-dropdown(options)(id="guests-quantity" class="guests || rooms")
-mixin quantity-dropdown(items, lable)
+mixin quantity-dropdown(items, label, caption)
   .iqdropdown&attributes(attributes)
-    lable.form-element-caption Dropdown
-    button.iqdropdown-selection.input-btn= lable
+    label.form-element-caption= caption
+    button.iqdropdown-selection.input-btn= label
       span.glyphicon.glyphicon-down
     .iqdropdown-menu
       - for (let i = 0; i < items.length; i++){
-        .iqdropdown-menu-option(
-          data-id= items[i].dataID
-          data-mincount= items[i].minCount || 0
-          data-maxcount= items[i].maxCount || 9
-          data-defaultcount= items[i].defaultcount || items[i].minCount || 0
-        )
-          div
-            p.iqdropdown-item= items[i].caption
+          .iqdropdown-menu-option(
+            data-id= items[i].dataID
+            data-mincount= items[i].minCount || 0
+            data-maxcount= items[i].maxCount || 9
+            data-defaultcount= items[i].defaultcount || items[i].minCount || 0
+          )
+            div
+              p.iqdropdown-item= items[i].text
+      - }
+
+mixin expandable-checkbox-list(caption, list)
+  .form-expandable-checkbox-list
+    label.form-element-caption= caption
+      i.glyphicon
+    .expandable-checkbox-menu
+      - for (let i = 0; i < list.length; i++){
+          .checkbox
+            input.checkbox-input(id= list[i].id type="checkbox" name= list[i].name value= list[i].value)
+            label.checkbox-label(for= list[i].id)= list[i].text
       - }
 
 .ui-kit
   -
     var guests = [
-      {caption: 'взрослые', dataID: 'adults', defaultCount: 0},
-      {caption: 'дети', dataID: 'children', defaultCount: 0},
-      {caption: 'младенцы', dataID: 'babies', defaultCount: 0}
+      {text: 'взрослые', dataID: 'adults', defaultCount: 0},
+      {text: 'дети', dataID: 'children', defaultCount: 0},
+      {text: 'младенцы', dataID: 'babies', defaultCount: 0}
     ]
     var rooms = [
-      {caption: 'спальни', dataID: 'bedrooms', defaultCount: 0},
-      {caption: 'кровати', dataID: 'beds', defaultCount: 0},
-      {caption: 'ванные комнаты', dataID: 'bathrooms', defaultCount: 0}
+      {text: 'спальни', dataID: 'bedrooms', defaultCount: 0},
+      {text: 'кровати', dataID: 'beds', defaultCount: 0},
+      {text: 'ванные комнаты', dataID: 'bathrooms', defaultCount: 0}
+    ]
+    var includingList = [
+      {id: 'breakfast', name: 'includ', value: 'check1', text: 'Завтрак'},
+      {id: 'desk', name: 'includ', value: 'check2', text: 'Письменный стол'},
+      {id: 'feedingChair', name: 'includ', value: 'check3', text: 'Стул для кормления'},
+      {id: 'crib', name: 'includ', value: 'check4', text: 'Кроватка'},
+      {id: 'tv', name: 'includ', value: 'check5', text: 'Телевизор'},
+      {id: 'shampoo', name: 'includ', value: 'check6', text: 'Шампунь'},
+      {id: 'tv2', name: 'includ', value: 'check7', text: 'Телевизор'},
+      {id: 'shampoo2', name: 'includ', value: 'check8', text: 'Шампунь'}
     ]
   +text-field("Text Field", "Email")
   +masked-text-field("Masked Text Field", "ДД.ММ.ГГГГ")
   +date-dropdown("Date Dropdown", "Date Dropdown")
   +filter-date-dropdown("Filter Date Dropdown")
   +subscription-text-field("Subscription Text Field", "Email")
-  +quantity-dropdown(rooms, "Сколько комнат")(class="isSelectionRooms")
-  +quantity-dropdown(guests, "Сколько гостей")(class="isSelectionGuests")
+  +quantity-dropdown(rooms, "Сколько комнат", "Dropdown")(class="isSelectionRooms")
+  +quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
+  +expandable-checkbox-list("Expandable checkbox list", includingList)

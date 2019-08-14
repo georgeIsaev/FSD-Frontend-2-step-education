@@ -290,3 +290,29 @@ $(document).ready(() => {
   })
   dropdownsOpener('.isSelectionRooms')
 })
+
+// Expandable checkbox list
+
+function openCheckboxList () {
+  let cbOpener = $('.form-expandable-checkbox-list').find('.form-element-caption')
+  let hiddenList = $('.form-expandable-checkbox-list').find('.expandable-checkbox-menu')
+  cbOpener.click((event) => {
+    if(hiddenList.css('display') == 'none'){
+      hiddenList.css('display', 'block')
+      cbOpener.find('.glyphicon').css({
+        'transform': 'rotate(135deg)',
+        'top': '5px'
+      })
+    } else {
+      hiddenList.css('display', 'none')
+      cbOpener.find('.glyphicon').css({
+        'transform': 'rotate(-45deg)',
+        'top': '2px'
+      })
+    }
+  })
+}
+
+$(document).ready(() => {
+  openCheckboxList()
+})
