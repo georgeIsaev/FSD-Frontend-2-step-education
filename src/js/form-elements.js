@@ -292,7 +292,6 @@ $(document).ready(() => {
 })
 
 // Expandable checkbox list
-
 function openCheckboxList () {
   let cbOpener = $('.isExpandable').find('.form-element-caption')
   let hiddenList = $('.isExpandable').find('.expandable-checkbox-menu')
@@ -315,4 +314,23 @@ function openCheckboxList () {
 
 $(document).ready(() => {
   openCheckboxList()
+})
+
+// Like buttons touch
+
+function likeBtn (ths) {
+  let thisLikeBtn = $(ths).hasClass('like-button') ? $(ths) : $(ths).parent()
+  let likeCount = parseInt(thisLikeBtn.find('.likes-count').html())
+
+  thisLikeBtn.toggleClass('liked')
+  if(thisLikeBtn.hasClass('liked')){
+    thisLikeBtn.find('.likes-count').html(likeCount + 1)
+  } else {
+    thisLikeBtn.find('.likes-count').html(likeCount - 1)
+  }
+}
+
+$('.like-button').click((event) => {
+  likeBtn(event.target)
+  event.preventDefault()
 })

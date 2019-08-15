@@ -62,6 +62,25 @@ mixin expandable-checkbox-list(caption, list, modClass)
             label.checkbox-label(for= list[i].id)= list[i].text
       - }
 
+mixin radio-buttons()
+  .form-radio-buttons
+    .man-btn
+      input.radio-input(id="man" type="radio" name="sex" value="radio1" checked)
+      label.radio-label(for="man") Мужчина
+    .woman-btn
+      input.radio-input(id="woman" type="radio" name="sex" value="radio2")
+      label.radio-label(for="woman") Женщина
+      
+mixin toggle()
+  .form-toggle
+    input.toggle-input(id="subscribe" type="checkbox" name="mailList" value="toggle")
+    label.toggle-label(for="subscribe") Получать спецпредложения
+
+mixin like-button(count)
+  .like-button&attributes(attributes)
+    .heart
+    i.likes-count= count
+
 .ui-kit
   -
     var guests = [
@@ -85,9 +104,9 @@ mixin expandable-checkbox-list(caption, list, modClass)
       {id: 'shampoo2', name: 'includ', value: 'check8', text: 'Шампунь'}
     ]
     var rulesList = [
-      {id: 'isSmoke', name: 'includ', value: 'check1', text: 'Можно курить'},
-      {id: 'isPets', name: 'includ', value: 'check2', text: 'Можо с питомцами'},
-      {id: 'isGuests', name: 'includ', value: 'check3', text: 'Можно приглосить гостей (до 10 человек)'}
+      {id: 'isSmoke', name: 'rules', value: 'check1', text: 'Можно курить'},
+      {id: 'isPets', name: 'rules', value: 'check2', text: 'Можо с питомцами'},
+      {id: 'isGuests', name: 'rules', value: 'check3', text: 'Можно приглосить гостей (до 10 человек)'}
     ]
   +text-field("Text Field", "Email")
   +masked-text-field("Masked Text Field", "ДД.ММ.ГГГГ")
@@ -98,3 +117,14 @@ mixin expandable-checkbox-list(caption, list, modClass)
   +quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
   +expandable-checkbox-list("Expandable checkbox list", includingList, 'isExpandable')
   +expandable-checkbox-list("Checkbox buttons", rulesList)
+
+  label.form-element-caption Radio buttons
+  +radio-buttons()
+
+  label.form-element-caption Toggle
+  +toggle()
+  
+  label.form-element-caption Like button
+  .ui-kit-like-button
+    +like-button('2')
+    +like-button('12')(class="liked")
