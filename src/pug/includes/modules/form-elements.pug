@@ -98,6 +98,25 @@ mixin rute-button
     input(id="star-0" type="radio" name="reviewStars")
     label(title="bad" for="star-0")
 
+mixin buttons(btn_class, btn_href, caption)
+  a(class= btn_class href= btn_href)= caption
+
+mixin pagination(pages)
+  .pagination-body
+    .pagination-btn
+      - for (let i = 0; i < pages.length; i++){
+          - if (i == 0){
+              a.start-page.active-page(id=`page-${pages[i].number}` href= pages[i].href)= pages[i].number
+          - } else if (i == pages.length - 1 ){
+              a.final-page(id=`page-${pages[i].number}` href= pages[i].href)= pages[i].number
+          - } else {
+              a(id=`page-${pages[i].number}` href= pages[i].href)= pages[i].number
+          - }
+      - }
+      a.next-page
+    .pagination-variants-count
+      p= `1-12 из 100+ вариантов аренды`
+
 .ui-kit
   -
     var guests = [
@@ -125,6 +144,24 @@ mixin rute-button
       {id: 'isPets', name: 'rules', value: 'check2', text: 'Можо с питомцами'},
       {id: 'isGuests', name: 'rules', value: 'check3', text: 'Можно приглосить гостей (до 10 человек)'}
     ]
+    var pagination = [
+      {href: '', number: '1'},
+      {href: '', number: '2'},
+      {href: '', number: '3'},
+      {href: '', number: '4'},
+      {href: '', number: '5'},
+      {href: '', number: '6'},
+      {href: '', number: '7'},
+      {href: '', number: '8'},
+      {href: '', number: '9'},
+      {href: '', number: '10'},
+      {href: '', number: '11'},
+      {href: '', number: '12'},
+      {href: '', number: '13'},
+      {href: '', number: '14'},
+      {href: '', number: '15'},
+    ]
+
   +text-field("Text Field", "Email")
   +masked-text-field("Masked Text Field", "ДД.ММ.ГГГГ")
   +date-dropdown("Date Dropdown", "Date Dropdown")
@@ -148,3 +185,13 @@ mixin rute-button
 
   label.form-element-caption Rute button
   +rute-button
+
+  label.form-element-caption Buttons
+  +buttons("sm-btn", "", "clike me")
+  +buttons("empty-btn", "", "clike me")
+  +buttons("first-simple-btn", "", "clike me")
+  +buttons("second-simple-btn", "", "clike me")
+  +buttons("lg-btn", "","Перейти к оплате")
+
+  label.form-element-caption Pagination
+  +pagination(pagination)

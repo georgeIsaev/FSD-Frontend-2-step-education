@@ -199,7 +199,7 @@
 
     .button-decrement {
       border-color: $dark-shade-25;
-      background: url("../img/css_sprites.png") no-repeat -121px -114px;
+      background: url("../img/css_sprites.png") no-repeat -161px 4px;
     }
   }
 
@@ -568,5 +568,130 @@
   }
   label[for="star-0"] {
     order: 0;
+  }
+}
+
+%btn-common-decoration {
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 14px 0 15px;
+
+  width: 99px;
+  height: 44px;
+  border-radius: 22px;
+}
+
+.sm-btn {
+  @extend %btn-common-decoration;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.sm-btn:hover {
+  opacity: 0.5;
+}
+
+.empty-btn {
+  @extend %btn-common-decoration;
+  color: $purple;
+  border: 2px solid $purple;
+}
+
+.empty-btn:hover {
+  border: 2px solid rgba(188, 156, 255, .5);
+}
+
+.first-simple-btn {
+  @extend %btn-common-decoration;
+  color: $purple;
+  width: 61px;
+  height: 15px;
+  padding: 0;
+  border-radius: 0;
+}
+
+.second-simple-btn {
+  @extend %btn-common-decoration;
+  color: $dark-shade-75;
+  width: 61px;
+  height: 15px;
+  padding: 0;
+  border-radius: 0;
+}
+
+.lg-btn {
+  @extend %btn-common-decoration;
+  position: relative;
+  width: 320px;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.lg-btn:after {
+  position: absolute;
+  content: "";
+  top: 13px;
+  right: 13px;
+  width: 18px;
+  height: 18px;
+  background: url("../img/css_sprites.png") no-repeat -132px -128px;
+}
+
+.pagination-body {
+  display: flex;
+  flex-direction: column;
+  // width: 241px;
+  .pagination-btn {
+    display: flex;
+    flex-direction: row;
+    a {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      color: $dark-shade-50;
+      font-size: 12px;
+      line-height: 15px;
+    }
+    .active-page {
+      width: 40px;
+      height: 40px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      border-radius: 22px;
+    }
+    .next-page {
+      width: 40px;
+      height: 40px;
+      position: relative;
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+      border-radius: 22px;
+      cursor: pointer;
+    }
+    .next-page:after {
+      position: absolute;
+      content: "";
+      width: 18px;
+      height: 18px;
+      top: 11px;
+      right: 11px;
+      background: url("../img/css_sprites.png") no-repeat -132px -128px;
+    }
+  }
+
+  .pagination-variants-count {
+    margin-top: 10.56px;
+  }
+
+  .ellipsis {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
