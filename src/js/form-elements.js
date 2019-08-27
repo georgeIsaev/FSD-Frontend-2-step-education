@@ -336,7 +336,7 @@ $('.like-button').click((event) => {
 })
 
 
-//Pagination
+// Pagination
 let dataPages = $('.pagination-btn').find('a')
 
 function pagination (){
@@ -411,4 +411,24 @@ for (let i = 0; i < dataPages.length; i++){
   }
 }
 
+
+// Range slider
+
+$(".js-range-slider").ionRangeSlider({
+  type: "double",
+  skin: "round",
+  min: 0,
+  max: 15000,
+  from: 5000,
+  to: 10000,
+  step: 100,
+  postfix: "&#8381;",
+  hide_min_max: true,
+  onChange: (data) => {
+    rangeSliaderValues = `${data.from}&#8381; - ${data.to}&#8381;`
+    $('.amount-interval').html(rangeSliaderValues)
+  }
+})
+let rangeSliaderValues = $('.irs-single').html()
+$('.amount-interval').html(rangeSliaderValues)
 

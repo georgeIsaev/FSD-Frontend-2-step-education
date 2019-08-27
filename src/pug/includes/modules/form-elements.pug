@@ -49,7 +49,7 @@ mixin quantity-dropdown(items, label, caption)
               p.iqdropdown-item= items[i].text
       - }
 
-mixin expandable-checkbox-list(caption, list, modClass)
+mixin checkbox-list(caption, list, modClass)
   .form-expandable-checkbox-list(class= modClass)
     label.form-element-caption= caption
       - if (modClass == 'isExpandable'){
@@ -58,6 +58,9 @@ mixin expandable-checkbox-list(caption, list, modClass)
     .expandable-checkbox-menu
       - for (let i = 0; i < list.length; i++){
           .checkbox
+            - if (modClass == 'isRich'){
+                h3.rich-checkbox-title= list[i].title
+            - }
             input.checkbox-input(id= list[i].id type="checkbox" name= list[i].name value= list[i].value)
             label.checkbox-label(for= list[i].id)= list[i].text
       - }
@@ -117,6 +120,13 @@ mixin pagination(pages)
     .pagination-variants-count
       p= `1-12 из 100+ вариантов аренды`
 
+mixin range-slider()
+  .range-slider
+    .range-slider-title
+      label.form-element-caption Range slider
+      span.amount-interval
+    input.js-range-slider(type="text" name="my_range" value="")
+
 .ui-kit
   -
     var guests = [
@@ -144,6 +154,11 @@ mixin pagination(pages)
       {id: 'isPets', name: 'rules', value: 'check2', text: 'Можо с питомцами'},
       {id: 'isGuests', name: 'rules', value: 'check3', text: 'Можно приглосить гостей (до 10 человек)'}
     ]
+    var servicesList = [
+      {id: 'hall', name: 'services', value: 'check1', text: 'Широкий коридор в номере не менее 91см', title: 'Широкий коридор'},
+      {id: 'helper', name: 'services', value: 'check2', text: 'На 1 этаже вас встретит специалист и проводит до номера', title: 'Помощник для инвалидов'}
+  
+    ]
     var pagination = [
       {href: '', number: '1'},
       {href: '', number: '2'},
@@ -169,8 +184,9 @@ mixin pagination(pages)
   +subscription-text-field("Subscription Text Field", "Email")
   +quantity-dropdown(rooms, "Сколько комнат", "Dropdown")(class="isSelectionRooms")
   +quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
-  +expandable-checkbox-list("Expandable checkbox list", includingList, 'isExpandable')
-  +expandable-checkbox-list("Checkbox buttons", rulesList)
+  +checkbox-list("Expandable checkbox list", includingList, 'isExpandable')
+  +checkbox-list("Checkbox buttons", rulesList)
+  +checkbox-list("Rich checkbox buttons", servicesList, 'isRich')
 
   label.form-element-caption Radio buttons
   +radio-buttons()
@@ -195,3 +211,5 @@ mixin pagination(pages)
 
   label.form-element-caption Pagination
   +pagination(pagination)
+
+  +range-slider
