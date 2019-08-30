@@ -1,0 +1,34 @@
+block form-search-rooms
+  .search-rooms
+    form(action="", method="", name="search-rooms")
+      h1.search-rooms-title Найдём номера под ваши пожелания
+      +date-dropdown("Прибытие", "Выезд")
+      +quantity-dropdown(guests, "Сколько гостей", "Гости")(class="isSelectionGuests")
+      +buttons("lg-btn", "", "Подобрать номер")
+
+block form-signUp
+  .signUp
+    form(action="", method="", name="signUp")
+      h1.signUp-title Регистрация аккаунта
+      +text-field("", "Имя")
+      +text-field("", "Фамилия")
+      +radio-buttons()
+      +date-birthday("Дата рождения")
+      +text-field("Данные для входа в сервис", "Email")
+      +text-field("", "Пароль")(type="password")
+      +toggle()
+      +buttons("lg-btn", "", "Перейти к оплате")
+      .isSignIn
+        p Уже есть аккаунт на Toxin
+        +buttons("empty-btn", "", "Войти")
+
+block form-signIn
+  .signIn
+    form(action="", method="", name="signIn")
+      h1.signIn-title Войти
+      +text-field("", "Email")
+      +text-field("", "Пароль")(type="password")
+      +buttons("lg-btn", "", "Войти")
+      .isSignUp
+        p Нет аккаунта на Toxin?
+        +buttons("empty-btn", "", "Создать")

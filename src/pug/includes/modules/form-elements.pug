@@ -1,35 +1,37 @@
 mixin text-field(caption, placeholder)
   .form-text-field
-    label.form-element-caption= caption
-    input.input-btn(type="text" name="data" placeholder= placeholder)
+    - if (caption){
+      label.form-element-caption= caption
+    - }
+    input.input-btn(type="text" name="data" placeholder= placeholder autocomplete="off")&attributes(attributes)
 
-mixin masked-text-field(caption, placeholder)
-  .form-masked-text-field
+mixin date-birthday(caption)
+  .form-date-birthday
     label.form-element-caption= caption
-    input.input-btn.date(type="text" name="data" placeholder= placeholder)
+    input.input-btn.datepicker-here(id="date-birthday" type="text" name="data" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly)
 
 mixin date-dropdown(caption_start, caption_end)
   .form-date-dropdown
     .date-dropdown-start
       label.form-element-caption= caption_start
       i.glyphicon.glyphicon-down
-      input.input-btn.datepicker-here(id="date-start" type="text" name="data" placeholder="ДД.ММ.ГГГГ")
+      input.input-btn.datepicker-here(id="date-start" type="text" name="data" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly)
     .date-dropdown-end
       label.form-element-caption= caption_end
       i.glyphicon.glyphicon-down
-      input.input-btn(id="date-end" type="text" name="data" placeholder="ДД.ММ.ГГГГ")
+      input.input-btn(id="date-end" type="text" name="data" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly)
 
 mixin filter-date-dropdown(caption)
   .form-filter-date-dropdown
     label.form-element-caption= caption
     i.glyphicon.glyphicon-down
-    input.input-btn.datepicker-here(id="date-filter" type="text" name="data")
+    input.input-btn.datepicker-here(id="date-filter" type="text" name="data" autocomplete="off")
 
 mixin subscription-text-field(caption, placeholder, subLink)
   .form-subscription-text-field
     label.form-element-caption= caption
     a.subscribe-btn.glyphicon-next(href= subLink)
-    input.input-btn(type="text" name="data" placeholder= placeholder)
+    input.input-btn(type="text" name="data" placeholder= placeholder autocomplete="off")
 
 //- +quantity-dropdown(options)(id="guests-quantity" class="guests || rooms")
 mixin quantity-dropdown(items, label, caption)
@@ -152,108 +154,106 @@ mixin room-infomation(infList)
     h3.room-infomation-title= infList.title
       span.room-infomation-desc #{infList.desc}
 
+-
+  var guests = [
+    {text: 'взрослые', dataID: 'adults', defaultCount: 0},
+    {text: 'дети', dataID: 'children', defaultCount: 0},
+    {text: 'младенцы', dataID: 'babies', defaultCount: 0}
+  ]
+  var rooms = [
+    {text: 'спальни', dataID: 'bedrooms', defaultCount: 0},
+    {text: 'кровати', dataID: 'beds', defaultCount: 0},
+    {text: 'ванные комнаты', dataID: 'bathrooms', defaultCount: 0}
+  ]
+  var includingList = [
+    {id: 'breakfast', name: 'includ', value: 'check1', text: 'Завтрак'},
+    {id: 'desk', name: 'includ', value: 'check2', text: 'Письменный стол'},
+    {id: 'feedingChair', name: 'includ', value: 'check3', text: 'Стул для кормления'},
+    {id: 'crib', name: 'includ', value: 'check4', text: 'Кроватка'},
+    {id: 'tv', name: 'includ', value: 'check5', text: 'Телевизор'},
+    {id: 'shampoo', name: 'includ', value: 'check6', text: 'Шампунь'},
+    {id: 'tv2', name: 'includ', value: 'check7', text: 'Телевизор'},
+    {id: 'shampoo2', name: 'includ', value: 'check8', text: 'Шампунь'}
+  ]
+  var rulesList = [
+    {id: 'isSmoke', name: 'rules', value: 'check1', text: 'Можно курить'},
+    {id: 'isPets', name: 'rules', value: 'check2', text: 'Можо с питомцами'},
+    {id: 'isGuests', name: 'rules', value: 'check3', text: 'Можно приглосить гостей (до 10 человек)'}
+  ]
+  var servicesList = [
+    {id: 'hall', name: 'services', value: 'check1', text: 'Широкий коридор в номере не менее 91см', title: 'Широкий коридор'},
+    {id: 'helper', name: 'services', value: 'check2', text: 'На 1 этаже вас встретит специалист и проводит до номера', title: 'Помощник для инвалидов'}
+  ]
+  var pagination = [
+    {href: '', number: '1'},
+    {href: '', number: '2'},
+    {href: '', number: '3'},
+    {href: '', number: '4'},
+    {href: '', number: '5'},
+    {href: '', number: '6'},
+    {href: '', number: '7'},
+    {href: '', number: '8'},
+    {href: '', number: '9'},
+    {href: '', number: '10'},
+    {href: '', number: '11'},
+    {href: '', number: '12'},
+    {href: '', number: '13'},
+    {href: '', number: '14'},
+    {href: '', number: '15'},
+  ]
+  var bulletList = [
+    {title: 'Нельзя с питомцами'},
+    {title: 'Без вечеринок и мероприятия'},
+    {title: 'время прибытия - после 13:00, а выезд до 12:00'}
+  ]
+  var comments = {
+    src: '../assets/img/avatar.png', 
+    author: 'Мурад Сарафанов', 
+    text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 
+    date: '5 дней', 
+    likeCount: '12'
+  }
+  var roomInfData = [
+    {src: '../assets/img/smile.png', title: 'Комфорт', desc: 'Шумопоглощающие стены'},
+    {src: '../assets/img/location_city.png', title: 'Удобство', desc: 'Окно в каждой из спален'}
+  ]
 
-.ui-kit
-  -
-    var guests = [
-      {text: 'взрослые', dataID: 'adults', defaultCount: 0},
-      {text: 'дети', dataID: 'children', defaultCount: 0},
-      {text: 'младенцы', dataID: 'babies', defaultCount: 0}
-    ]
-    var rooms = [
-      {text: 'спальни', dataID: 'bedrooms', defaultCount: 0},
-      {text: 'кровати', dataID: 'beds', defaultCount: 0},
-      {text: 'ванные комнаты', dataID: 'bathrooms', defaultCount: 0}
-    ]
-    var includingList = [
-      {id: 'breakfast', name: 'includ', value: 'check1', text: 'Завтрак'},
-      {id: 'desk', name: 'includ', value: 'check2', text: 'Письменный стол'},
-      {id: 'feedingChair', name: 'includ', value: 'check3', text: 'Стул для кормления'},
-      {id: 'crib', name: 'includ', value: 'check4', text: 'Кроватка'},
-      {id: 'tv', name: 'includ', value: 'check5', text: 'Телевизор'},
-      {id: 'shampoo', name: 'includ', value: 'check6', text: 'Шампунь'},
-      {id: 'tv2', name: 'includ', value: 'check7', text: 'Телевизор'},
-      {id: 'shampoo2', name: 'includ', value: 'check8', text: 'Шампунь'}
-    ]
-    var rulesList = [
-      {id: 'isSmoke', name: 'rules', value: 'check1', text: 'Можно курить'},
-      {id: 'isPets', name: 'rules', value: 'check2', text: 'Можо с питомцами'},
-      {id: 'isGuests', name: 'rules', value: 'check3', text: 'Можно приглосить гостей (до 10 человек)'}
-    ]
-    var servicesList = [
-      {id: 'hall', name: 'services', value: 'check1', text: 'Широкий коридор в номере не менее 91см', title: 'Широкий коридор'},
-      {id: 'helper', name: 'services', value: 'check2', text: 'На 1 этаже вас встретит специалист и проводит до номера', title: 'Помощник для инвалидов'}
-    ]
-    var pagination = [
-      {href: '', number: '1'},
-      {href: '', number: '2'},
-      {href: '', number: '3'},
-      {href: '', number: '4'},
-      {href: '', number: '5'},
-      {href: '', number: '6'},
-      {href: '', number: '7'},
-      {href: '', number: '8'},
-      {href: '', number: '9'},
-      {href: '', number: '10'},
-      {href: '', number: '11'},
-      {href: '', number: '12'},
-      {href: '', number: '13'},
-      {href: '', number: '14'},
-      {href: '', number: '15'},
-    ]
-    var bulletList = [
-      {title: 'Нельзя с питомцами'},
-      {title: 'Без вечеринок и мероприятия'},
-      {title: 'время прибытия - после 13:00, а выезд до 12:00'}
-    ]
-    var comments = {
-      src: '../assets/img/avatar.png', 
-      author: 'Мурад Сарафанов', 
-      text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 
-      date: '5 дней', 
-      likeCount: '12'
-    }
-    var roomInfData = [
-      {src: '../assets/img/smile.png', title: 'Комфорт', desc: 'Шумопоглощающие стены'},
-      {src: '../assets/img/location_city.png', title: 'Удобство', desc: 'Окно в каждой из спален'}
-    ]
+//- +text-field("Text Field", "Email")
+//- +date-birthday("Birth day")
+//- +date-dropdown("Date Dropdown", "Date Dropdown")
+//- +filter-date-dropdown("Filter Date Dropdown")
+//- +subscription-text-field("Subscription Text Field", "Email", "")
+//- +quantity-dropdown(rooms, "Сколько комнат", "Dropdown")(class="isSelectionRooms")
+//- +quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
+//- +checkbox-list("Expandable checkbox list", includingList, 'isExpandable')
+//- +checkbox-list("Checkbox buttons", rulesList)
+//- +checkbox-list("Rich checkbox buttons", servicesList, 'isRich')
 
-  +text-field("Text Field", "Email")
-  +masked-text-field("Masked Text Field", "ДД.ММ.ГГГГ")
-  +date-dropdown("Date Dropdown", "Date Dropdown")
-  +filter-date-dropdown("Filter Date Dropdown")
-  +subscription-text-field("Subscription Text Field", "Email", "")
-  +quantity-dropdown(rooms, "Сколько комнат", "Dropdown")(class="isSelectionRooms")
-  +quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
-  +checkbox-list("Expandable checkbox list", includingList, 'isExpandable')
-  +checkbox-list("Checkbox buttons", rulesList)
-  +checkbox-list("Rich checkbox buttons", servicesList, 'isRich')
+//- label.form-element-caption Radio buttons
+//- +radio-buttons()
 
-  label.form-element-caption Radio buttons
-  +radio-buttons()
+//- label.form-element-caption Toggle
+//- +toggle()
 
-  label.form-element-caption Toggle
-  +toggle()
-  
-  label.form-element-caption Like button
-  .ui-kit-like-button
-    +like-button('2')
-    +like-button('12')(class="liked")
+//- label.form-element-caption Like button
+//- .ui-kit-like-button
+//-   +like-button('2')
+//-   +like-button('12')(class="liked")
 
-  label.form-element-caption Rute button
-  +rute-button
+//- label.form-element-caption Rute button
+//- +rute-button
 
-  label.form-element-caption Buttons
-  +buttons("sm-btn", "", "clike me")
-  +buttons("empty-btn", "", "clike me")
-  +buttons("first-simple-btn", "", "clike me")
-  +buttons("second-simple-btn", "", "clike me")
-  +buttons("lg-btn", "","Перейти к оплате")
+//- label.form-element-caption Buttons
+//- +buttons("sm-btn", "", "clike me")
+//- +buttons("empty-btn", "", "clike me")
+//- +buttons("first-simple-btn", "", "clike me")
+//- +buttons("second-simple-btn", "", "clike me")
+//- +buttons("lg-btn", "","Перейти к оплате")
 
-  label.form-element-caption Pagination
-  +pagination(pagination)
-  +range-slider()
-  +bullet-list("Правила", bulletList)
-  +comment(comments)
-  +room-infomation(roomInfData[0])
-  +room-infomation(roomInfData[1])
+//- label.form-element-caption Pagination
+//- +pagination(pagination)
+//- +range-slider()
+//- +bullet-list("Правила", bulletList)
+//- +comment(comments)
+//- +room-infomation(roomInfData[0])
+//- +room-infomation(roomInfData[1])

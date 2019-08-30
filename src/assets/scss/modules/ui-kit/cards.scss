@@ -1,0 +1,81 @@
+%form-common-decoration {
+  width: 380px;
+  padding: 40px 30px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.search-rooms {
+  @extend %form-common-decoration;
+
+  &-title {
+    margin-bottom: 20px;
+  }
+  .form-date-dropdown {
+    margin-bottom: 20.5px;
+  }
+  .iqdropdown {
+    margin-bottom: 31px;
+  }
+  .input-btn:focus {
+    border: 1px solid $dark-shade-25;
+  }
+}
+
+.signUp{
+  @extend %form-common-decoration;
+
+  &-title {
+    margin-bottom: 20px;
+  }
+  .form-text-field {
+    margin-bottom: 10px;
+  }
+  .form-radio-buttons {
+    margin-bottom: 20px;
+  }
+  .form-date-birthday {
+    margin-bottom: 20px;
+  }
+  .form-toggle {
+    margin-bottom: 20px;
+  }
+  .lg-btn {
+    margin-bottom: 30px;
+  }
+  .isSignIn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      line-height: 18px;
+    }
+  }
+}
+
+.signIn{
+  @extend %form-common-decoration;
+
+  &-title {
+    margin-bottom: 20px;
+  }
+  .form-text-field {
+    margin-bottom: 10px;
+  }
+  .lg-btn {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .isSignUp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      line-height: 18px;
+    }
+  }
+}

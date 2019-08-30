@@ -34,12 +34,14 @@ body {
 *, *:before, *:after { box-sizing: border-box; }
 
 h1, h2, h3 {
-  font-family: $titleFont;
+  font-family: $titleFont sans-serif;;
   font-style: normal;
   font-weight: bold;
   color: $dark-shade-100;
   font-size: 24px;
   line-height: 30px;
+  word-spacing: 1px;
+  letter-spacing: .5px;
 }
 
 h2 {
@@ -48,7 +50,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Montserrat';
+  font-family: $mainFont;
   font-size: 12px;
   line-height: 15px;
 }

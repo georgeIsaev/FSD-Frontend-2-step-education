@@ -1,7 +1,4 @@
 $(document).ready(function(){
-  // Mask for input
-  $(".date").mask("99.99.9999",{placeholder:"ДД.ММ.ГГГГ"})
-
   // Date start - end, 
   $('#date-start').datepicker({
     range: true,
@@ -12,6 +9,11 @@ $(document).ready(function(){
       $('#date-end').val(date.split("-")[1])
     }
   })
+  $('#date-end').click((event) => {
+    $('#date-start').focus()
+    event.preventDefault()
+  })
+  
   
   //  translate date in filter-date-dropdown
   $('#date-filter').datepicker({
@@ -70,7 +72,7 @@ function dropdownsOpener (dropdown){
       })
     }
     toggleGlyphicon (dropdown)
-    event.preventDefault;
+    event.preventDefault()
   })
 
   $(document).click((event) => {
@@ -105,7 +107,13 @@ function clearBtnForDropdown (dropdown){
     $(dropdown).find('.button-decrement').css('border-color', 'rgba(31, 32, 65, 0.25)')
     $(dropdown).find('.btn-clear').css('display', 'none')
     $(dropdown).find('.iqdropdown-menu-option').find('.button-increment').css('border-color', 'rgba(31, 32, 65, 0.5)')
-    event.preventDefault
+    event.preventDefault()
+  })
+}
+
+function applyBtnForDropdown (dropdown){
+  $('.btn-apply').click((event) => {
+    event.preventDefault()
   })
 }
 
@@ -199,6 +207,7 @@ $(document).ready(() => {
   addDropdownBtns()
   dropdownsOpener('.isSelectionGuests')
   clearBtnForDropdown('.isSelectionGuests', guests)
+  applyBtnForDropdown('.isSelectionGuests')
 })
 
 // Rooms dropdown list logic
