@@ -129,9 +129,13 @@
   .input-btn {
     width: 266px;
   }
-  .glyphicon {
+  .subscribe-btn {
+    position: absolute;
+    width: 18px;
+    height: 18px;
     top: 33px;
     right: 13px;
+    cursor: pointer;
   }
 }
 
@@ -762,6 +766,7 @@
       border-radius: 3px;
     }
     &-handle {
+      cursor: pointer;
       top: -4px;
       width: 12px;
       height: 12px;
@@ -782,5 +787,86 @@
     &-single {
       display: none;
     }
+  }
+}
+
+.bullet-list {
+  &-element {
+    position: relative;
+    width: 266px;
+    padding-left: 20px;
+  }
+  &-element:before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 7px;
+    left: 0;
+    background-color: $dark-shade-25;
+    border-radius: 50%;
+  }
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+
+  &-title,
+  &-body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-title {
+    &-avatar {
+      widows: 48px;
+      height: 48px;
+      margin-right: 9px;
+      margin-bottom: 10px;
+    }
+    &-author {
+      display: flex;
+      flex-direction: column;
+      padding-top: 2px;
+      font-size: 14px;
+      line-height: 24px;
+      color: $dark-shade-75;
+    }
+    &-date {
+      font-weight: normal;
+    }
+  }
+
+  &-body {
+    .like-button {
+      margin-right: 14px;
+      margin-top: 2px;
+    }
+    &-text {
+      width: 663px;
+      font-size: 14px;
+    }
+  }
+}
+
+.room-infomation {
+  display: flex;
+  flex-direction: row;
+  &-icon {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+  }
+  &-title {
+    display: flex;
+    flex-direction: column;
+    margin-top: -4px;
+    font-size: 14px;
+    line-height: 24px;
+    color: $dark-shade-75;
+  }
+  &-desc {
+    font-weight: normal;
   }
 }
