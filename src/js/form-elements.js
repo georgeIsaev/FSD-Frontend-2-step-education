@@ -1,20 +1,31 @@
 $(document).ready(function(){
   // Date start - end, 
   $('#date-start').datepicker({
+    classes: 'date-start-end',
     range: true,
     multipleDatesSeparator: '-',
     clearButton: true,
     onSelect: function (date) {
       $('#date-start').val(date.split("-")[0])
       $('#date-end').val(date.split("-")[1])
+    },
+    navTitles: {
+      days: 'MM yyyy'
     }
   })
+  $('.date-start-end').find('.datepicker--buttons').append('<span class="datepicker--button" data-action="apply"> Применить </span>')
+  let dateStartEnd = $('#date-start').datepicker().data('datepicker');
   $('#date-end').click((event) => {
-    $('#date-start').focus()
+    dateStartEnd.show();
     event.preventDefault()
   })
   
-  
+  $('.date-start-end').find('.datepicker--button[data-action="apply"]').click((event) => {
+    dateStartEnd.hide();
+    event.preventDefault()
+  })
+
+
   //  translate date in filter-date-dropdown
   $('#date-filter').datepicker({
     range: true,
@@ -23,6 +34,11 @@ $(document).ready(function(){
   })
 })
 
+$('#date-birthday').datepicker({
+  navTitles: {
+    days: 'MM yyyy'
+  }
+})
 
 // logic for the dropdown list
 const guests = {
