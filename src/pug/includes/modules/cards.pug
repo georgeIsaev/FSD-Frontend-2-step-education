@@ -32,3 +32,27 @@ block form-signIn
       .isSignUp
         p Нет аккаунта на Toxin?
         +buttons("empty-btn", "", "Создать")
+
+mixin room-card(dataRooms)
+  .room-card
+    .owl-carousel.owl-theme
+      - for (let i = 0; i < dataRooms.img.length; i++){
+          img.room-card-img(src= dataRooms.img[i].src alt= dataRooms.img[i].alt)
+      - }
+    .room-info
+      .short-info
+        .room-number(class= dataRooms.extraClass)
+          span №
+          h2= dataRooms.roomNumb
+        .room-price
+          span #{dataRooms.price}&#8381; 
+            i в сутки
+      .room-rating-reviews
+        .rating
+          +rute-button(dataRooms.rating, id= dataRooms.roomNumb)
+        .reviews
+          span= dataRooms.reviewsCount
+            i  Отзывов
+
++room-card(roomsInfo[0])
++room-card(roomsInfo[1])

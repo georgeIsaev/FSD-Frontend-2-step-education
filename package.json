@@ -57,6 +57,7 @@
     "ion-rangeslider": "^2.3.0",
     "item-quantity-dropdown": "^2.0.2",
     "jquery": "^3.4.1",
+    "owl.carousel": "^2.3.4",
     "popper.js": "^1.15.0"
   }
 }

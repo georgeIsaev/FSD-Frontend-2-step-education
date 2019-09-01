@@ -86,22 +86,22 @@ mixin like-button(count)
     .heart
     i.likes-count= count
 
-mixin rute-button 
-  .rute-button
-    input(id="star-4" type="radio" name="reviewStars")
-    label(title="gorgeous" for="star-4")
+mixin rute-button(starCount, id)
+  form.rute-button(id=`${id}-room-rute`, defaultStar= starCount, action="", method="", name="rute")
+    input(id=`${id}-star-5` type="radio" name="reviewStars")
+    label(title="gorgeous" for=`${id}-star-5`)
 
-    input(id="star-3" type="radio" name="reviewStars")
-    label(title="good" for="star-3")
+    input(id=`${id}-star-4` type="radio" name="reviewStars")
+    label(title="good" for=`${id}-star-4`)
 
-    input(id="star-2" type="radio" name="reviewStars")
-    label(title="regular" for="star-2")
+    input(id=`${id}-star-3` type="radio" name="reviewStars")
+    label(title="regular" for=`${id}-star-3`)
 
-    input(id="star-1" type="radio" name="reviewStars")
-    label(title="poor" for="star-1")
+    input(id=`${id}-star-2` type="radio" name="reviewStars")
+    label(title="poor" for=`${id}-star-2`)
 
-    input(id="star-0" type="radio" name="reviewStars")
-    label(title="bad" for="star-0")
+    input(id=`${id}-star-1` type="radio" name="reviewStars")
+    label(title="bad" for=`${id}-star-1`)
 
 mixin buttons(btn_class, btn_href, caption)
   a(class= btn_class href= btn_href)= caption
@@ -216,6 +216,33 @@ mixin room-infomation(infList)
   var roomInfData = [
     {src: '../assets/img/smile.png', title: 'Комфорт', desc: 'Шумопоглощающие стены'},
     {src: '../assets/img/location_city.png', title: 'Удобство', desc: 'Окно в каждой из спален'}
+  ]
+  var roomsInfo = [
+    {
+      img:[
+        {src: '../assets/img/room_888.png', alt: 'room'},
+        {src: '../assets/img/room_888.png', alt: 'room'},
+        {src: '../assets/img/room_888.png', alt: 'room'},
+        {src: '../assets/img/room_888.png', alt: 'room'}
+      ],
+      extraClass: 'luxury',
+      roomNumb: '888',
+      price: '9 990',
+      rating: '5',
+      reviewsCount: '145'
+    },{
+      img:[
+        {src: '../assets/img/room_840.png', alt: 'room'},
+        {src: '../assets/img/room_840.png', alt: 'room'},
+        {src: '../assets/img/room_840.png', alt: 'room'},
+        {src: '../assets/img/room_840.png', alt: 'room'}
+      ],
+      extraClass: '',
+      roomNumb: '840',
+      price: '9 900',
+      rating: '4',
+      reviewsCount: '65'
+    }
   ]
 
 //- +text-field("Text Field", "Email")

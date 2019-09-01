@@ -12,11 +12,16 @@ import '../node_modules/item-quantity-dropdown/lib/item-quantity-dropdown.min.js
 // ion-rangeslider
 import '../node_modules/ion-rangeslider/js/ion.rangeSlider.min.js'
 import '../node_modules/ion-rangeslider/css/ion.rangeSlider.min.css'
+// owlcarousel
+import 'owl.carousel/dist/assets/owl.carousel.min.css'
+import 'owl.carousel/dist/assets/owl.theme.default.css'
+import 'owl.carousel'
 // ---PLUGINS END---
 
 
 //JS
 import './js/form-elements'
+import './js/cards'
 // SCSS
 import './assets/scss/main.scss'
 
