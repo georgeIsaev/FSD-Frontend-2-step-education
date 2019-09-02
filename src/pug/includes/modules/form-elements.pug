@@ -11,7 +11,7 @@ mixin date-birthday(caption)
     input.input-btn.datepicker-here(id="date-birthday" type="text" name="data" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly)
 
 mixin date-dropdown(caption_start, caption_end)
-  .form-date-dropdown
+  .form-date-dropdown&attributes(attributes)
     .date-dropdown-start
       label.form-element-caption= caption_start
       i.glyphicon.glyphicon-down

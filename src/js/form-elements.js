@@ -1,8 +1,10 @@
 $(document).ready(function(){
   // Date start - end, 
+  
   $('#date-start').datepicker({
     classes: 'date-start-end',
     range: true,
+    multipleDates: true,
     multipleDatesSeparator: '-',
     clearButton: true,
     onSelect: function (date) {
@@ -13,6 +15,7 @@ $(document).ready(function(){
       days: 'MM yyyy'
     }
   })
+  
   $('.date-start-end').find('.datepicker--buttons').append('<span class="datepicker--button" data-action="apply"> Применить </span>')
   let dateStartEnd = $('#date-start').datepicker().data('datepicker');
   $('#date-end').click((event) => {

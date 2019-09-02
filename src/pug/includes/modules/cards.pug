@@ -56,3 +56,32 @@ mixin room-card(dataRooms)
 
 +room-card(roomsInfo[0])
 +room-card(roomsInfo[1])
+
+block in-room-card
+  .in-room-card
+    form(action="", method="", name="signIn")
+      .short-info
+        .room-number(class= roomsInfo[0].extraClass)
+          span №
+          h2= roomsInfo[0].roomNumb
+        .room-price
+          span #{roomsInfo[0].price}&#8381; 
+            i в сутки
+      +date-dropdown("Прибытие", "Выезд")(id="in-room-card-date")
+      +quantity-dropdown(guests, "Сколько гостей", "Гости")(class="isSelectionGuests")
+      .cost-calculation
+        ul 
+          li
+            span.price-at-day #{roomsInfo[0].price}&#8381; x 4 суток
+            span.sum-price.at-days
+          li
+            span.serv-price Сбор за услуги: скидка 2 179&#8381; 
+            span.sum-price 0&#8381;
+          li
+            span.extra-serv-price Сбор за дополнительные услуги
+            span.sum-price 0&#8381;
+      .total-cost
+        h2 Итого
+        span.line
+        h2.total-price
+      +buttons("lg-btn", "", "Забронировать")

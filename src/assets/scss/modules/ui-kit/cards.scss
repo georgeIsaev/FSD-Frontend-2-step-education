@@ -6,6 +6,58 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
+%short-info {
+  .short-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .room-number {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      cursor: default;
+      span {
+        font-family: $titleFont;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        color: $dark-shade-100;
+        margin-right: 4px;
+        padding-bottom: 1px;
+      }
+      &.luxury:after {
+        position: absolute;
+        content: 'люкс';
+        font-family: $mainFont sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #BC9CFF;
+        bottom: 3px;
+        right: -45px;
+      }
+    }
+    .room-price {
+      span {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 18px;
+        color: $dark-shade-50;
+        i {
+          font-weight: normal;
+          font-style: normal;
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
 
 .search-rooms {
   @extend %form-common-decoration;
@@ -330,6 +382,8 @@
   }
 
   // room-infoo
+  @extend %short-info;
+
   .room-info {
     display: flex;
     flex-direction: column;
@@ -337,6 +391,10 @@
     padding-bottom: 18px;
   }
 
+  .short-info {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+  }
   .short-info, 
   .room-rating-reviews {
     display: flex;
@@ -344,56 +402,6 @@
     flex-direction: row;
     align-items: center;
   }
-  .short-info {
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(31, 32, 65, 0.1);
-
-    .room-number {
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      cursor: default;
-      span {
-        font-family: $titleFont;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 17px;
-        color: $dark-shade-100;
-        margin-right: 4px;
-        padding-bottom: 1px;
-      }
-      &.luxury:after {
-        position: absolute;
-        content: 'люкс';
-        font-family: $mainFont sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 15px;
-        text-transform: uppercase;
-        color: #BC9CFF;
-        bottom: 3px;
-        right: -45px;
-      }
-    }
-    .room-price {
-      span {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 18px;
-        color: $dark-shade-50;
-        i {
-          font-weight: normal;
-          font-style: normal;
-          font-size: 12px;
-          line-height: 18px;
-        }
-      }
-    }
-  }
-
   // room-rating
   .room-rating-reviews {
     padding-top: 8px;
@@ -411,4 +419,88 @@
       line-height: 18px;
     }
   }
+}
+
+
+
+// in room card
+
+.in-room-card {
+  width: 380px;
+  height: 511px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 40px 30px 30px;
+  @extend %short-info;
+
+  .short-info,
+  .form-date-dropdown,
+  .iqdropdown,
+  .total-cost {
+    margin-bottom: 20px;
+  }
+
+  .cost-calculation ul>li, 
+  .total-cost {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .cost-calculation ul>li {
+    font-family: $mainFont;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: $dark-shade-75;
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 30px;
+    }
+
+    .price-at-day,
+    .serv-price,
+    .extra-serv-price {
+      position: relative;
+      width: 225px;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+    }
+
+    .serv-price,
+    .extra-serv-price {
+      &::after {
+        position: absolute;
+        content: 'i';
+        top: 2px;
+        right: -17px;
+        width: 20px;
+        height: 20px;
+
+        padding-top: 3px;
+        padding-left: 7.5px;
+        font-family: $mainFont;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 14px;
+        color: $dark-shade-25;
+        border: 1px solid $dark-shade-25;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .total-cost {
+    .line {
+      width: 56.9%;
+      margin-bottom: 5px;
+      border-bottom: 1px dotted $dark-shade-25;
+    }
+  }
+
 }
