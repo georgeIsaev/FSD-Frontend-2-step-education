@@ -1,6 +1,14 @@
 $(document).ready(function(){
   // Date start - end, 
-  
+  function addApplyBtnInDateDropdown (dateDropdownId, datepickerClass) {
+    $(datepickerClass).find('.datepicker--buttons').append('<span class="datepicker--button" data-action="apply"> Применить </span>')
+    let dateStartEnd = $(dateDropdownId).datepicker().data('datepicker')
+    $(datepickerClass).find('.datepicker--button[data-action="apply"]').click((event) => {
+      dateStartEnd.hide()
+      event.preventDefault()
+    })
+  }
+
   $('#date-start').datepicker({
     classes: 'date-start-end',
     range: true,
@@ -15,26 +23,27 @@ $(document).ready(function(){
       days: 'MM yyyy'
     }
   })
-  
-  $('.date-start-end').find('.datepicker--buttons').append('<span class="datepicker--button" data-action="apply"> Применить </span>')
-  let dateStartEnd = $('#date-start').datepicker().data('datepicker');
+
+  let dateStart = $('#date-start').datepicker().data('datepicker')
   $('#date-end').click((event) => {
-    dateStartEnd.show();
+    dateStart.show()
     event.preventDefault()
   })
+  addApplyBtnInDateDropdown ('#date-start', '.date-start-end')
   
-  $('.date-start-end').find('.datepicker--button[data-action="apply"]').click((event) => {
-    dateStartEnd.hide();
-    event.preventDefault()
-  })
-
-
+  
   //  translate date in filter-date-dropdown
   $('#date-filter').datepicker({
+    classes: 'date-start-end-filter',
     range: true,
     multipleDatesSeparator: ' - ',
-    dateFormat: 'dd M'
+    dateFormat: 'dd M',
+    clearButton: true,
+    navTitles: {
+      days: 'MM yyyy'
+    }
   })
+  addApplyBtnInDateDropdown ('#date-filter', '.date-start-end-filter')
 })
 
 $('#date-birthday').datepicker({

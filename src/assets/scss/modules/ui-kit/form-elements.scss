@@ -102,6 +102,7 @@
   .input-btn {
     width: 266px;
     text-transform: lowercase;
+    cursor: pointer;
   }
 }
 
@@ -296,7 +297,7 @@
   }
 }
 
-.isExpandable {
+.form-expandable-checkbox-list.isExpandable {
   width: 266px;
   .form-element-caption {
     cursor: pointer;;
@@ -306,32 +307,32 @@
   }
 }
 
-.isRich {
+.form-expandable-checkbox-list.isRich {
   .checkbox {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     width: 266px;
-    .rich-checkbox-title {
-      font-size: 14px;
-      line-height: 18px;
-      padding-left: 29.74px;
-      color: $dark-shade-75;
-    }
     .checkbox-label {
       margin: 5px 0 1px;
       font-size: 12px;
       line-height: 14px;
+      .rich-checkbox-title {
+        font-size: 14px;
+        line-height: 18px;
+        color: $dark-shade-75;
+        margin-bottom: 5px;
+      }
     }
 
     .checkbox-input:not(:checked) + .checkbox-label:before,
     .checkbox-input:checked + .checkbox-label:before {
-      top: -23px;
+      top: -1px;
     }
 
     .checkbox-input:not(:checked) + .checkbox-label:after,
     .checkbox-input:checked + .checkbox-label:after {
-      top: -17.95px;
+      top: 4.05px;
     }
   }
 }

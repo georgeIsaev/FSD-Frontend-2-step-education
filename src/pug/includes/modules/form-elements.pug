@@ -25,7 +25,7 @@ mixin filter-date-dropdown(caption)
   .form-filter-date-dropdown
     label.form-element-caption= caption
     i.glyphicon.glyphicon-down
-    input.input-btn.datepicker-here(id="date-filter" type="text" name="data" autocomplete="off")
+    input.input-btn.datepicker-here(id="date-filter" type="text" name="data" autocomplete="off" readonly)
 
 mixin subscription-text-field(caption, placeholder, subLink)
   .form-subscription-text-field
@@ -60,11 +60,12 @@ mixin checkbox-list(caption, list, modClass)
     .expandable-checkbox-menu
       - for (let i = 0; i < list.length; i++){
           .checkbox
-            - if (modClass == 'isRich'){
-                h3.rich-checkbox-title= list[i].title
-            - }
             input.checkbox-input(id= list[i].id type="checkbox" name= list[i].name value= list[i].value)
-            label.checkbox-label(for= list[i].id)= list[i].text
+            label.checkbox-label(for= list[i].id)
+              - if (modClass == 'isRich'){
+                  h3.rich-checkbox-title= list[i].title
+              - }
+              = list[i].text
       - }
 
 mixin radio-buttons()
@@ -245,42 +246,36 @@ mixin room-infomation(infList)
     }
   ]
 
-//- +text-field("Text Field", "Email")
-//- +date-birthday("Birth day")
-//- +date-dropdown("Date Dropdown", "Date Dropdown")
-//- +filter-date-dropdown("Filter Date Dropdown")
-//- +subscription-text-field("Subscription Text Field", "Email", "")
-//- +quantity-dropdown(rooms, "Сколько комнат", "Dropdown")(class="isSelectionRooms")
-//- +quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
-//- +checkbox-list("Expandable checkbox list", includingList, 'isExpandable')
-//- +checkbox-list("Checkbox buttons", rulesList)
-//- +checkbox-list("Rich checkbox buttons", servicesList, 'isRich')
-
-//- label.form-element-caption Radio buttons
-//- +radio-buttons()
-
-//- label.form-element-caption Toggle
-//- +toggle()
-
-//- label.form-element-caption Like button
-//- .ui-kit-like-button
-//-   +like-button('2')
-//-   +like-button('12')(class="liked")
-
-//- label.form-element-caption Rute button
-//- +rute-button
-
-//- label.form-element-caption Buttons
-//- +buttons("sm-btn", "", "clike me")
-//- +buttons("empty-btn", "", "clike me")
-//- +buttons("first-simple-btn", "", "clike me")
-//- +buttons("second-simple-btn", "", "clike me")
-//- +buttons("lg-btn", "","Перейти к оплате")
-
-//- label.form-element-caption Pagination
-//- +pagination(pagination)
-//- +range-slider()
-//- +bullet-list("Правила", bulletList)
-//- +comment(comments)
-//- +room-infomation(roomInfData[0])
-//- +room-infomation(roomInfData[1])
++text-field("Text Field", "Email")
++date-birthday("Birth day")
++date-dropdown("Date Dropdown", "Date Dropdown")
++filter-date-dropdown("Filter Date Dropdown")
++subscription-text-field("Subscription Text Field", "Email", "")
++quantity-dropdown(rooms, "Сколько комнат", "Dropdown")(class="isSelectionRooms")
++quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
++checkbox-list("Expandable checkbox list", includingList, 'isExpandable')
++checkbox-list("Checkbox buttons", rulesList)
++checkbox-list("Rich checkbox buttons", servicesList, 'isRich')
+label.form-element-caption Radio buttons
++radio-buttons()
+label.form-element-caption Toggle
++toggle()
+label.form-element-caption Like button
+.ui-kit-like-button
+  +like-button('2')
+  +like-button('12')(class="liked")
+label.form-element-caption Rute button
++rute-button
+label.form-element-caption Buttons
++buttons("sm-btn", "", "clike me")
++buttons("empty-btn", "", "clike me")
++buttons("first-simple-btn", "", "clike me")
++buttons("second-simple-btn", "", "clike me")
++buttons("lg-btn", "","Перейти к оплате")
+label.form-element-caption Pagination
++pagination(pagination)
++range-slider()
++bullet-list("Правила", bulletList)
++comment(comments)
++room-infomation(roomInfData[0])
++room-infomation(roomInfData[1])
