@@ -1,0 +1,17 @@
+-
+  var comments = {
+    src: 'assets/img/avatar.png', 
+    author: 'Мурад Сарафанов', 
+    text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 
+    date: '5 дней', 
+    likeCount: '12'
+  }
+mixin comment(commentInf)
+  .comment
+    .comment__title
+      img.title__avatar(src= commentInf.src, alt="avatar")
+      h3.title__author= commentInf.author
+        span.title__date #{commentInf.date} назад 
+    .comment__body
+      +like-button(commentInf.likeCount)(id="comment-like", class="liked")
+      p.body__text= commentInf.text

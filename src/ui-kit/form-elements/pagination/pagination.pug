@@ -1,0 +1,33 @@
+-
+  var pagination = [
+    {href: '', number: '1'},
+    {href: '', number: '2'},
+    {href: '', number: '3'},
+    {href: '', number: '4'},
+    {href: '', number: '5'},
+    {href: '', number: '6'},
+    {href: '', number: '7'},
+    {href: '', number: '8'},
+    {href: '', number: '9'},
+    {href: '', number: '10'},
+    {href: '', number: '11'},
+    {href: '', number: '12'},
+    {href: '', number: '13'},
+    {href: '', number: '14'},
+    {href: '', number: '15'},
+  ]
+mixin pagination(pages)
+  .pagination
+    .pagination__btn
+      - for (let i = 0; i < pages.length; i++){
+          - if (i == 0){
+              a.start-page.active-page(id=`page-${pages[i].number}` href= pages[i].href)= pages[i].number
+          - } else if (i == pages.length - 1 ){
+              a.final-page(id=`page-${pages[i].number}` href= pages[i].href)= pages[i].number
+          - } else {
+              a(id=`page-${pages[i].number}` href= pages[i].href)= pages[i].number
+          - }
+      - }
+      a.next-page
+    .pagination__variants-count
+      p= `1-12 из 100+ вариантов аренды`

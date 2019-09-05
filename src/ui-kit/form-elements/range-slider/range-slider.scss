@@ -1,0 +1,65 @@
+.range-slider {
+  display: flex;
+  flex-direction: column;
+  width: 266px;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 23.44px;
+    .header__caption {
+      display: block;
+      font-family: $mainFont;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: $dark-shade-100;
+      margin-bottom: 0;
+    }
+    .header__amount-interval {
+      display: block;
+      height: 15px;
+      font-family: $mainFont;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: right;
+      text-transform: uppercase;
+      color: $dark-shade-50;
+    }
+  }
+
+  .irs {
+    height: 6px;
+    &-line {
+      top: 0;
+      background: white;
+      border: 1px solid $dark-shade-25;
+      box-sizing: border-box;
+      border-radius: 3px;
+    }
+    &-handle {
+      cursor: pointer;
+      top: -4px;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+      border: 2px solid white;
+      border-radius: 10px;
+      box-shadow: none;
+    }
+    &-bar {
+      top: -1px;
+      width: 88px;
+      height: 6px;
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+      border-radius: 3px;
+    }
+    &-from,
+    &-to,
+    &-single {
+      display: none;
+    }
+  }
+}

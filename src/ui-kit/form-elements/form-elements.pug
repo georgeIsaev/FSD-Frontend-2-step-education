@@ -1,0 +1,72 @@
+include ./bullet-list/bullet-list
+include ./buttons/buttons
+include ./checkbox-list/checkbox-list
+include ./comment/comment
+include ./date-birthday/date-birthday
+include ./date-dropdown/date-dropdown
+include ./filter-date-dropdown/filter-date-dropdown
+include ./like-button/like-button
+include ./pagination/pagination
+include ./quantity-dropdown/quantity-dropdown
+include ./radio-buttons/radio-buttons
+include ./range-slider/range-slider
+include ./room-infomation/room-infomation
+include ./rute-button/rute-button
+include ./subscription-text-field/subscription-text-field
+include ./text-field/text-field
+include ./toggle/toggle 
+-
+  var roomsInfo = [
+    {
+      img:[
+        {src: '../assets/img/room_888.png', alt: 'room'},
+        {src: '../assets/img/room_888.png', alt: 'room'},
+        {src: '../assets/img/room_888.png', alt: 'room'},
+        {src: '../assets/img/room_888.png', alt: 'room'}
+      ],
+      extraClass: 'luxury',
+      roomNumb: '888',
+      price: '9 990',
+      rating: '5',
+      reviewsCount: '145'
+    },{
+      img:[
+        {src: '../assets/img/room_840.png', alt: 'room'},
+        {src: '../assets/img/room_840.png', alt: 'room'},
+        {src: '../assets/img/room_840.png', alt: 'room'},
+        {src: '../assets/img/room_840.png', alt: 'room'}
+      ],
+      extraClass: '',
+      roomNumb: '840',
+      price: '9 900',
+      rating: '4',
+      reviewsCount: '65'
+    }
+  ]
+
++text-field("Text Field", "Email")
++date-birthday("Birth day")
++date-dropdown("Date Dropdown", "Date Dropdown")
++filter-date-dropdown("Filter Date Dropdown")
++subscription-text-field("Subscription Text Field", "Email", "")
++quantity-dropdown(rooms, "Сколько комнат", "Dropdown")(class="isSelectionRooms")
++quantity-dropdown(guests, "Сколько гостей", "Dropdown")(class="isSelectionGuests")
++checkbox-list("Expandable checkbox list", includingList, '_isExpandable')
++checkbox-list("Checkbox buttons", rulesList)
++checkbox-list("Rich checkbox buttons", servicesList, '_isRich')
++radio-buttons()
++toggle()
++like-button('2')
++like-button('12')(class="_liked")
++rute-button
++buttons("btn_type_sm", "", "clike me")
++buttons("btn_type_empty", "", "clike me")
++buttons("btn_type_first-simple", "", "clike me")
++buttons("btn_type_second-simple", "", "clike me")
++buttons("btn_type_lg", "","Перейти к оплате")
++pagination(pagination)
++range-slider()
++bullet-list("Правила", bulletList)
++comment(comments)
++room-infomation(roomInfData[0])
++room-infomation(roomInfData[1])

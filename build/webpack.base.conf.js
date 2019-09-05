@@ -16,7 +16,7 @@ const PATHS = {
 // Pages const for HtmlWebpackPlugin
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 // const PAGES_DIR = PATHS.src
-const PAGES_DIR = `${PATHS.src}/pug/pages/`
+const PAGES_DIR = `${PATHS.src}/pages/`
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 
 module.exports = {
@@ -116,12 +116,30 @@ module.exports = {
       'window.jQuery': 'jquery'
     }),
 
-    // Automatic creation any html pages (Don't forget to RERUN dev server)
-    // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
-    // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
-    ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`,
-      filename: `./${page.replace(/\.pug/,'.html')}`
-    }))
+    new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}home/home.pug`,
+      filename: 'home.html',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}room-details/room-details.pug`,
+      filename: 'room-details.html',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}search-room/search-room.pug`,
+      filename: 'search-room.html',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}signIn/signIn.pug`,
+      filename: 'signIn.html',
+      inject: true
+    }),
+    new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}signUp/signUp.pug`,
+      filename: 'signUp.html',
+      inject: true
+    })
   ]
 }

@@ -1,0 +1,6 @@
+mixin text-field(caption, placeholder)
+  .text-field
+    - if (caption){
+      label.text-field__caption= caption
+    - }
+    input.text-field__input(type="text" name="data" placeholder= placeholder autocomplete="off")&attributes(attributes)

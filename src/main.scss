@@ -1,0 +1,110 @@
+@import "./assets/utils/vars.scss";
+@import "./assets/utils/fonts.scss";
+@import "./assets/utils/reset.scss";
+
+html {
+  line-height: $mainLineHeight;
+	font-size: $mainFontSize;
+	color: $mainFontColor;
+  height: 100%;
+  @media screen and (max-width: $desktopWidth) {
+		font-size: 16px;
+  }
+  @media screen and (max-width: $tableWidth) {
+		font-size: 15px;
+  }
+  @media screen and (max-width: $phoneWidth) {
+		font-size: 14px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $mainFont;
+	font-size: $mainFontSize;
+  font-weight: $mainFontWeight;
+  color: $mainFontColor;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after { box-sizing: border-box; }
+
+h1, h2, h3 {
+  font-family: $titleFont sans-serif;;
+  font-style: normal;
+  font-weight: bold;
+  color: $dark-shade-100;
+  font-size: 24px;
+  line-height: 30px;
+  word-spacing: 1px;
+  letter-spacing: .5px;
+}
+
+h2 {
+  font-size: 19px;
+  line-height: 24px;
+}
+
+h3 {
+  font-family: $mainFont;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+a { text-decoration: none; }
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+section, .section {
+  position: relative;
+  padding: 40px 0;
+  @media screen and (max-width: $desktopWidth) {
+    padding: 36px 0;
+  }
+  @media screen and (max-width: $desktopWidth) {
+    padding: 28px 0;
+  }
+  @media screen and (max-width: $desktopWidth) {
+    padding: 20px 0;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  flex: 0 0 auto;
+  position: relative;
+  margin: 0 auto;
+  max-width: $desktopWidth;
+  @media screen and (max-width: $smDesktopWidth) {
+    max-width: tableWidth;
+  }
+  @media screen and (max-width: $tableWidth) {
+    max-width: phoneWidth;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    max-width: smPhoneWidth;
+  }
+}
+
+// Modules
+
+@import "./ui-kit/form-elements/form-elements.scss";

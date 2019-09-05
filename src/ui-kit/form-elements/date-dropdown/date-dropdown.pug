@@ -1,0 +1,10 @@
+mixin date-dropdown(caption_start, caption_end)
+  .date-dropdown&attributes(attributes)
+    .date-dropdown__start
+      label.date-dropdown__caption= caption_start
+      i.date-dropdown__glyphicon.glyphicon_down
+      input.date-dropdown__input.datepicker-here(id="date-start" type="text" name="data" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly)
+    .date-dropdown__end
+      label.date-dropdown__caption= caption_end
+      i.date-dropdown__glyphicon.glyphicon_down
+      input.date-dropdown__input(id="date-end" type="text" name="data" placeholder="ДД.ММ.ГГГГ" autocomplete="off" readonly)

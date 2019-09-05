@@ -1,0 +1,27 @@
+.bullet-list {
+  &__caption {
+    display: block;
+    font-family: $mainFont;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $dark-shade-100;
+    margin-bottom: 5px;
+  }
+  &__li {
+    position: relative;
+    width: 266px;
+    padding-left: 20px;
+  }
+  &__li:before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 7px;
+    left: 0;
+    background-color: $dark-shade-25;
+    border-radius: 50%;
+  }
+}

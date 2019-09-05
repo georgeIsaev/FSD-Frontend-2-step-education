@@ -1,0 +1,16 @@
+mixin rute-button(starCount, id)
+  form.rute-button(id=`${id}-room-rute`, defaultStar= starCount, action="", method="", name="rute")
+    input(id=`${id}-star-5` type="radio" name="reviewStars")
+    label(title="gorgeous" for=`${id}-star-5`)
+
+    input(id=`${id}-star-4` type="radio" name="reviewStars")
+    label(title="good" for=`${id}-star-4`)
+
+    input(id=`${id}-star-3` type="radio" name="reviewStars")
+    label(title="regular" for=`${id}-star-3`)
+
+    input(id=`${id}-star-2` type="radio" name="reviewStars")
+    label(title="poor" for=`${id}-star-2`)
+
+    input(id=`${id}-star-1` type="radio" name="reviewStars")
+    label(title="bad" for=`${id}-star-1`)

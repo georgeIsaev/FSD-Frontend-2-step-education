@@ -1,0 +1,20 @@
+.room-infomation {
+  display: flex;
+  flex-direction: row;
+  &__icon {
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    margin-top: -4px;
+    font-size: 14px;
+    line-height: 24px;
+    color: $dark-shade-75;
+  }
+  &__desc {
+    font-weight: normal;
+  }
+}

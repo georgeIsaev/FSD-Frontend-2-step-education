@@ -1,0 +1,54 @@
+.like-button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40px;
+  height: 20px;
+  border: 1px solid $dark-shade-25;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 3px 12px 4px 22px;
+  cursor: pointer;
+  
+  .likes-count {
+    display: block;
+    font-family: $mainFont;
+    font-style: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: $dark-shade-25;
+  }
+
+  .heart {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border: 1px solid  $dark-shade-25;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+    bottom: 6px;
+    left: 7px;
+  }
+  .heart:before, 
+  .heart:after {
+    position:absolute;
+    content: ' ';
+    border-radius: 50px 0 0 50px;
+    width: 3px;
+    height: 5px;
+    background-color: white;
+    border: 1px solid $dark-shade-25;
+    border-right: none;
+    top: -1px;
+    left: -2.9px;
+  }
+  .heart:after {
+    left: 0px;
+    top: -3.9px;
+    transform: rotate(90deg);
+  }
+}
+@import "./_liked/liked.scss";

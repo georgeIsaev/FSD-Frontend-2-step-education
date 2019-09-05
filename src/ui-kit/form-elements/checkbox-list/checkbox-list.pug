@@ -1,0 +1,36 @@
+-
+  var includingList = [
+    {id: 'breakfast', name: 'includ', value: 'check1', text: 'Завтрак'},
+    {id: 'desk', name: 'includ', value: 'check2', text: 'Письменный стол'},
+    {id: 'feedingChair', name: 'includ', value: 'check3', text: 'Стул для кормления'},
+    {id: 'crib', name: 'includ', value: 'check4', text: 'Кроватка'},
+    {id: 'tv', name: 'includ', value: 'check5', text: 'Телевизор'},
+    {id: 'shampoo', name: 'includ', value: 'check6', text: 'Шампунь'},
+    {id: 'tv2', name: 'includ', value: 'check7', text: 'Телевизор'},
+    {id: 'shampoo2', name: 'includ', value: 'check8', text: 'Шампунь'}
+  ]
+  var rulesList = [
+    {id: 'isSmoke', name: 'rules', value: 'check1', text: 'Можно курить'},
+    {id: 'isPets', name: 'rules', value: 'check2', text: 'Можо с питомцами'},
+    {id: 'isGuests', name: 'rules', value: 'check3', text: 'Можно приглосить гостей (до 10 человек)'}
+  ]
+  var servicesList = [
+    {id: 'hall', name: 'services', value: 'check1', text: 'Широкий коридор в номере не менее 91см', title: 'Широкий коридор'},
+    {id: 'helper', name: 'services', value: 'check2', text: 'На 1 этаже вас встретит специалист и проводит до номера', title: 'Помощник для инвалидов'}
+  ]
+mixin checkbox-list(caption, list, modClass)
+  .checkbox-list(class= modClass)
+    label.checkbox-list__caption= caption
+      - if (modClass == '_isExpandable'){
+          i.caption__glyphicon.glyphicon_down
+      - }
+    .checkbox-list__menu
+      - for (let i = 0; i < list.length; i++){
+          .checkbox
+            input.checkbox__input(id= list[i].id type="checkbox" name= list[i].name value= list[i].value)
+            label.checkbox__label(for= list[i].id)
+              - if (modClass == '_isRich'){
+                  h3.checkbox_isRich__title= list[i].title
+              - }
+              = list[i].text
+      - }

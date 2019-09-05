@@ -1,0 +1,36 @@
+.date-birthday {
+  &__caption {
+    display: block;
+    font-family: $mainFont;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $dark-shade-100;
+    margin-bottom: 5px;
+  }
+  &__input {
+    width: 320px;
+    height: 44px;
+    padding: 12px 15px;
+    border: 1px solid $dark-shade-25;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: white;
+    font-family: $mainFont;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: $dark-shade-75;
+    &::placeholder {
+      color: $dark-shade-25;
+    }
+    &:hover, 
+    &:focus {
+      border: 1px solid $dark-shade-50;
+      color: $dark-shade-75;
+    }
+    cursor: pointer;
+  }
+}

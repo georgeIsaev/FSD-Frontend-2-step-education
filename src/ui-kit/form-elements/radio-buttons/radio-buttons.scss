@@ -1,0 +1,58 @@
+.radio-buttons {
+  display: flex;
+  flex-direction: row;
+
+  .radio-buttons__input:not(:checked),
+  .radio-buttons__input:checked {
+    position: absolute;
+    left: -999999px;
+  }
+
+  .radio-buttons__input + .radio-buttons__label {
+    position: relative;
+    color: $dark-shade-50;
+    padding-left: 30px;
+    cursor: pointer; 
+  }
+
+  .radio-buttons__input:checked + .radio-buttons__label{
+    color: $dark-shade-75;
+  }
+
+  .radio-buttons__input:not(:checked) + .radio-buttons__label:before,
+  .radio-buttons__input:checked + .radio-buttons__label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $dark-shade-25;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: white; 
+  }
+  .radio-buttons__input:checked + .radio-buttons__label:before{
+    border-color: $purple;
+  }
+
+  .radio-buttons__input:not(:checked) + .radio-buttons__label:after,
+  .radio-buttons__input:checked + .radio-buttons__label:after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 3px;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    border-radius: 10px;
+    opacity: 0;
+  }
+  .radio-buttons__input:checked + .radio-buttons__label:after{
+    opacity: 1;
+  }
+
+  .radio-buttons__man-btn {
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,41 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+
+  &__title,
+  &__body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__title {
+    .title__avatar {
+      widows: 48px;
+      height: 48px;
+      margin-right: 9px;
+      margin-bottom: 10px;
+    }
+    .title__author {
+      display: flex;
+      flex-direction: column;
+      padding-top: 2px;
+      font-size: 14px;
+      line-height: 24px;
+      color: $dark-shade-75;
+    }
+    .title__date {
+      font-weight: normal;
+    }
+  }
+
+  &__body {
+    .like-button {
+      margin-right: 14px;
+      margin-top: 2px;
+    }
+    .body__text {
+      width: 663px;
+      font-size: 14px;
+    }
+  }
+}

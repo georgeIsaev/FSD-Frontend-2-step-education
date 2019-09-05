@@ -1,0 +1,129 @@
+.checkbox-list {
+  width: 230px;
+  &__caption {
+    display: block;
+    position: relative;
+    margin: 0;
+    font-family: $mainFont;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $dark-shade-100;
+    .caption__glyphicon{
+      position: absolute;
+      top: 2px;
+      right: 18px;
+      width: 8px;
+      height: 8px;
+      border-left: 2px solid $dark-shade-50;
+      border-bottom: 2px solid $dark-shade-50;
+      pointer-events: none;
+    }
+    .glyphicon_down {
+      transform: rotate(-45deg)
+    }
+    .glyphicon_up {
+      transform: rotate(135deg)
+    }
+  }
+
+  &__menu {
+    display: block;
+  }
+
+  .checkbox {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+
+    .checkbox__input:not(:checked),
+    .checkbox__input:checked {
+      position: absolute;
+      left: -999999px;
+    }
+
+    .checkbox__input + .checkbox__label{
+      position: relative;
+      line-height: 18px; 
+      color: $dark-shade-50;
+      padding-left: 29.74px;
+      cursor: pointer;    
+    }
+
+    .checkbox__input:not(:checked) + .checkbox__label:before,
+    .checkbox__input:checked + .checkbox__label:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $dark-shade-25;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: white; 
+    }
+    .checkbox__input:checked + .checkbox__label:before{
+      border-color: $purple;
+    }
+
+    .checkbox__input:not(:checked) + .checkbox__label:after,
+    .checkbox__input:checked + .checkbox__label:after {
+      content: "";
+      position: absolute;
+      left: 6.05px;
+      top: 5.05px;
+      width: 8px;
+      height: 6px;
+      border-left: 2px solid $purple;
+      border-bottom: 2px solid $purple;
+      transition: all 0.2s ease;
+      transform: rotate(-45deg);
+      opacity: 0;
+    }
+    .checkbox__input:checked + .checkbox__label:after{
+      opacity: 1;
+    }
+  }
+}
+
+.checkbox-list._isExpandable {
+  width: 266px;
+  .checkbox-list__caption {
+    cursor: pointer;;
+  }
+  .checkbox-list__menu {
+    display: none;
+  }
+}
+
+.checkbox-list._isRich {
+  .checkbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 266px;
+    .checkbox__label {
+      margin: 5px 0 1px;
+      font-size: 12px;
+      line-height: 14px;
+      .checkbox_isRich__title {
+        font-size: 14px;
+        line-height: 18px;
+        color: $dark-shade-75;
+        margin-bottom: 5px;
+      }
+    }
+
+    .checkbox__input:not(:checked) + .checkbox__label:before,
+    .checkbox__input:checked + .checkbox__label:before {
+      top: -1px;
+    }
+
+    .checkbox__input:not(:checked) + .checkbox__label:after,
+    .checkbox__input:checked + .checkbox__label:after {
+      top: 4.05px;
+    }
+  }
+}
