@@ -155,14 +155,14 @@ $(document).ready(() => {
         itemCount['children'] = 0
         itemCount['babies'] = 0
         flagZerro = false
-      } else if (totalCount > 0) {
+      } else if (totalCount > 0 && guests[id] > 0) {
         guests[id] = itemCount[id] - 1
         return true
       }
     },
     // return false to prevent an item increment
     beforeIncrement: (id, itemCount) => {
-      let totalCount = itemCount['adults'] + itemCount['children'] + itemCount['babies']
+      let totalCount = itemCount['adults'] + itemCount['children'] + itemCount['babies'] + 1
       if (flagZerro) {
         itemCount['adults'] = 0
         itemCount['children'] = 0
@@ -256,14 +256,14 @@ $(document).ready(() => {
     // return false to prevent an item decrement
     beforeDecrement: (id, itemCount) => {
       let totalCount = itemCount['bedrooms'] + itemCount['beds'] + itemCount['bathrooms']
-      if (totalCount > 0) {
+      if (totalCount > 0  && rooms[id] > 0) {
         rooms[id] = itemCount[id] - 1
         return true
       }
     },
     // return false to prevent an item increment
     beforeIncrement: (id, itemCount) => {
-      let totalCount = itemCount['bedrooms'] + itemCount['beds'] + itemCount['bathrooms']
+      let totalCount = itemCount['bedrooms'] + itemCount['beds'] + itemCount['bathrooms'] + 1
       if (totalCount < 10){
         rooms[id] = itemCount[id] + 1
         return true 

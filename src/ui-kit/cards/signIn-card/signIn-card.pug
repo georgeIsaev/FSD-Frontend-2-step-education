@@ -1,0 +1,10 @@
+mixin signIn-card
+  .signIn
+    form(action="", method="", name="signIn")
+      h1.signIn__title Войти
+      +text-field("", "Email")
+      +text-field("", "Пароль")(type="password")
+      +buttons("btn_type_lg", "", "Войти")
+      ._isSignUp
+        p Нет аккаунта на Toxin?
+        +buttons("btn_type_empty", "", "Создать")

@@ -7,14 +7,16 @@ function addApplyBtnInDateDropdown (dateDropdownId, datepickerClass) {
   })
 }
 
-$('#date-filter').datepicker({
-  classes: 'date-start-end-filter',
-  range: true,
-  multipleDatesSeparator: ' - ',
-  dateFormat: 'dd M',
-  clearButton: true,
-  navTitles: {
-    days: 'MM yyyy'
-  }
+$(document).ready(() => {
+  $('#date-filter').datepicker({
+    classes: 'date-start-end-filter',
+    range: true,
+    multipleDatesSeparator: ' - ',
+    dateFormat: 'dd M',
+    clearButton: true,
+    navTitles: {
+      days: 'MM yyyy'
+    }
+  })
+  addApplyBtnInDateDropdown ('#date-filter', '.date-start-end-filter')
 })
-addApplyBtnInDateDropdown ('#date-filter', '.date-start-end-filter')

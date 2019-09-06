@@ -1,5 +1,3 @@
-let dataPages = $('.pagination__btn').find('a')
-
 function pagination (){
   for (let i = 0; i < dataPages.length - 1; i++){
 
@@ -48,26 +46,29 @@ function pagination (){
   }
 }
 
-pagination()
-for (let i = 0; i < dataPages.length; i++){
-  if (i < dataPages.length - 1) {
-    $(dataPages[i]).click((event) => {
-      $('.active-page').removeClass('active-page')
-      $(dataPages[i]).addClass('active-page')
-      event.preventDefault()
-      pagination()
-    })
-  } else {
-    $(dataPages[i]).click((event) => {
-      for (let j = 0; j < dataPages.length - 1; j++){
-        if ($(dataPages[j]).hasClass('active-page') && j < dataPages.length - 2){
-          $(dataPages[j]).removeClass('active-page')
-          $(dataPages[j + 1]).addClass('active-page')
-          break
+$(document).ready(() => {
+  let dataPages = $('.pagination__btn').find('a')
+  pagination()
+  for (let i = 0; i < dataPages.length; i++){
+    if (i < dataPages.length - 1) {
+      $(dataPages[i]).click((event) => {
+        $('.active-page').removeClass('active-page')
+        $(dataPages[i]).addClass('active-page')
+        event.preventDefault()
+        pagination()
+      })
+    } else {
+      $(dataPages[i]).click((event) => {
+        for (let j = 0; j < dataPages.length - 1; j++){
+          if ($(dataPages[j]).hasClass('active-page') && j < dataPages.length - 2){
+            $(dataPages[j]).removeClass('active-page')
+            $(dataPages[j + 1]).addClass('active-page')
+            break
+          }
         }
-      }
-      event.preventDefault()
-      pagination()
-    })
+        event.preventDefault()
+        pagination()
+      })
+    }
   }
-}
+})

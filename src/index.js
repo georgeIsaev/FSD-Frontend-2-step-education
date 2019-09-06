@@ -19,7 +19,8 @@ import 'owl.carousel'
 
 
 //JS
-import './ui-kit/form-elements/form-elements'
+import './ui-kit/form-elements/form-elements.js'
+import './ui-kit/cards/cards.js'
 // SCSS
 import './main.scss'
 

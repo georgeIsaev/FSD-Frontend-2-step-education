@@ -1,0 +1,15 @@
+mixin signUp-card
+  .signUp
+    form(action="", method="", name="signUp")
+      h1.signUp__title Регистрация аккаунта
+      +text-field("", "Имя")
+      +text-field("", "Фамилия")
+      +radio-buttons()
+      +date-birthday("Дата рождения")
+      +text-field("Данные для входа в сервис", "Email")
+      +text-field("", "Пароль")(type="password")
+      +toggle()
+      +buttons("btn_type_lg", "", "Перейти к оплате")
+      ._isSignIn
+        p Уже есть аккаунт на Toxin
+        +buttons("btn_type_empty", "", "Войти")

@@ -10,7 +10,9 @@ function likeBtn (ths) {
   }
 }
 
-$('.like-button').click((event) => {
-  likeBtn(event.target)
-  event.preventDefault()
+$(document).ready(() => {
+  $('.like-button').click((event) => {
+    likeBtn(event.target)
+    event.preventDefault()
+  })
 })

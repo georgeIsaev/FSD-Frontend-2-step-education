@@ -7,24 +7,26 @@ function addApplyBtnInDateDropdown (dateDropdownId, datepickerClass) {
   })
 }
 
-$('#date-start').datepicker({
-  classes: 'date-start-end',
-  range: true,
-  multipleDates: true,
-  multipleDatesSeparator: '-',
-  clearButton: true,
-  onSelect: function (date) {
-    $('#date-start').val(date.split("-")[0])
-    $('#date-end').val(date.split("-")[1])
-  },
-  navTitles: {
-    days: 'MM yyyy'
-  }
-})
+$(document).ready(() => {
+  $('#date-start').datepicker({
+    classes: 'date-start-end',
+    range: true,
+    multipleDates: true,
+    multipleDatesSeparator: '-',
+    clearButton: true,
+    onSelect: function (date) {
+      $('#date-start').val(date.split("-")[0])
+      $('#date-end').val(date.split("-")[1])
+    },
+    navTitles: {
+      days: 'MM yyyy'
+    }
+  })
 
-let dateStart = $('#date-start').datepicker().data('datepicker')
-$('#date-end').click((event) => {
-  dateStart.show()
-  event.preventDefault()
+  let dateStart = $('#date-start').datepicker().data('datepicker')
+  $('#date-end').click((event) => {
+    dateStart.show()
+    event.preventDefault()
+  })
+  addApplyBtnInDateDropdown ('#date-start', '.date-start-end')
 })
-addApplyBtnInDateDropdown ('#date-start', '.date-start-end')

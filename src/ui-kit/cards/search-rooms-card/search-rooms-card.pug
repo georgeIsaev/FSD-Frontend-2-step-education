@@ -1,0 +1,7 @@
+mixin search-rooms-card
+  .search-rooms
+    form(action="", method="", name="search-rooms")
+      h1.search-rooms__title Найдём номера под ваши пожелания
+      +date-dropdown("Прибытие", "Выезд")
+      +quantity-dropdown(guests, "Сколько гостей", "Гости")(class="isSelectionGuests")
+      +buttons("btn_type_lg", "", "Подобрать номер")

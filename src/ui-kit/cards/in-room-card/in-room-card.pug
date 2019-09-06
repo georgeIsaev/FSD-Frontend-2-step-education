@@ -1,0 +1,57 @@
+-
+  var roomsInfo = [
+    {
+      img:[
+        {src: 'assets/img/room_888.png', alt: 'room'},
+        {src: 'assets/img/room_888.png', alt: 'room'},
+        {src: 'assets/img/room_888.png', alt: 'room'},
+        {src: 'assets/img/room_888.png', alt: 'room'}
+      ],
+      extraClass: 'luxury',
+      roomNumb: '888',
+      price: '9 990',
+      rating: '5',
+      reviewsCount: '145'
+    },{
+      img:[
+        {src: 'assets/img/room_840.png', alt: 'room'},
+        {src: 'assets/img/room_840.png', alt: 'room'},
+        {src: 'assets/img/room_840.png', alt: 'room'},
+        {src: 'assets/img/room_840.png', alt: 'room'}
+      ],
+      extraClass: '',
+      roomNumb: '840',
+      price: '9 900',
+      rating: '4',
+      reviewsCount: '65'
+    }
+  ]
+
+mixin in-room-card(dataRooms)
+  .in-room-card
+    form(action="", method="", name="signIn")
+      .short-info
+        .room-number(class= dataRooms.extraClass)
+          span №
+          h2= dataRooms.roomNumb
+        .room-price
+          span #{dataRooms.price}&#8381; 
+            i в сутки
+      +date-dropdown("Прибытие", "Выезд")(id="in-room-card-date")
+      +quantity-dropdown(guests, "Сколько гостей", "Гости")(class="isSelectionGuests")
+      .cost-calculation
+        ul 
+          li
+            span.price-at-day #{dataRooms.price}&#8381; x 4 суток
+            span.sum-price.at-days
+          li
+            span.serv-price Сбор за услуги: скидка 2 179&#8381; 
+            span.sum-price 0&#8381;
+          li
+            span.extra-serv-price Сбор за дополнительные услуги
+            span.sum-price.extra-price 300&#8381;
+      .total-cost
+        h2 Итого
+        span.line
+        h2.total-price
+      +buttons("btn_type_lg", "", "Забронировать")

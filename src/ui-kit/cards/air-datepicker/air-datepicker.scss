@@ -1,0 +1,180 @@
+.datepicker {
+  width: 320px;
+  padding: 20px;
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  box-sizing: border-box;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: $dark-shade-50;
+
+  
+  &--pointer {
+    display: none;
+  }
+
+
+  &--nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none;
+    padding: 0;
+    margin-bottom: 30px;
+    &-title {
+      font-family: $titleFont sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 19px;
+      line-height: 24px;
+      color: $dark-shade-100;
+      &:hover {
+        background: none;
+      }
+    }
+    &-action {
+      svg {
+        display: none;
+      }
+      width: 18px;
+      height: 18px;
+      background: url("assets/img/css_sprites.png") no-repeat -94px -128px;
+      &:first-child {
+        transform: rotate(180deg)
+      }
+      &:hover {
+        background: url("assets/img/css_sprites.png") no-repeat -94px -128px;
+      }
+    }
+  }
+  
+
+  &--content {
+    padding: 0;
+    margin-bottom: 20px;
+    .datepicker--cells {
+      width: 280px;
+    }
+    .datepicker--days-names {
+      margin: 0;
+      margin-bottom: 25px;
+    }
+    .datepicker--day-name {
+      font-size: 12px;
+      font-weight: bold;
+      color: $purple;
+      text-transform: capitalize;
+    }
+    .datepicker--cell-day {
+      width: 39.88px;
+      height: 40px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 15px;
+      color: $dark-shade-50;
+      &:hover {
+        border-radius: 22px;
+      }
+    }
+    .-current-,
+    .datepicker--cell.-other-month-.-current- {
+      color: white;
+      font-weight: bold;
+      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+      border-radius: 22px;
+      &:hover {
+        color: white;
+      }
+    }
+    .datepicker--cell.-current-.-in-range- {
+      color: $purple;
+      font-weight: bold;
+    }
+    .datepicker--cell-month {
+      font-size: 14px;
+    }
+    .-other-month- {
+      color: $dark-shade-25
+    }
+    .-in-range-, 
+    .-in-range-.datepicker--cell-day.-other-month-, 
+    .-in-range-.datepicker--cell-year.-other-decade-{
+      border-radius: 0;
+      background: linear-gradient(rgba(188, 156, 255, .25) 0%, rgba(139, 164, 249, .25) 100%);
+      &:hover {
+        border-radius: 0;
+        background: linear-gradient(rgba(188, 156, 255, .25) 0%, rgba(139, 164, 249, .25) 100%);
+      }
+    }
+    .-range-from-,
+    .-range-to-,
+    .-selected-.datepicker--cell-day.-other-month-, 
+    .-selected-.datepicker--cell-year.-other-decade-,
+    .-selected-.datepicker--cell-day {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border: none;
+      color: white;
+      font-weight: bold;
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+      border-radius: 22px;
+      z-index: 100;
+      &:hover {
+        background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+        color: white;
+      }
+    }
+    .-range-from-:after,
+    .-range-to-:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      width: 20px;
+      height: 40px;
+      background: linear-gradient(rgba(188, 156, 255, .25) 0%, rgba(139, 164, 249, .25) 100%);
+      z-index: -10;
+    }
+    .-range-to-:before {
+      left: 0;
+    }
+    .-range-from-:after {
+      right: 0;
+    }
+    .-range-from-:hover,
+    .-range-to-:hover {
+      background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    }
+  }
+
+
+  &--buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    border-top: none;
+    .datepicker--button {
+      height: auto;
+      flex-grow: 0;
+      flex-shrink: 1;
+      justify-content: flex-start;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $dark-shade-50;
+      background: none;
+    }
+
+    .datepicker--button[data-action="apply"] {
+      width: 84px;
+      justify-content: flex-end;
+      color: #BC9CFF;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+.room-card {
+  width: 270px;
+  height: 257px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+
+  // owl-carousel
+  .owl-carousel.owl-theme {
+    position: relative;
+    width: 270px;
+    .owl-stage-outer {
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+    .owl-dots {
+      position: absolute;
+      content: '';
+      bottom: 6.75px;
+      right: 11.3px;
+    }
+    .owl-dots .owl-dot span {
+      width: 7.5px;
+      height: 7.5px;
+      border: 1px solid white;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0);
+      margin: 0;
+      margin-right: 3.7px;
+    }
+    .owl-dots .owl-dot.active span,
+    .owl-dots .owl-dot span:hover {
+      background: white;
+    }
+
+    .owl-nav {
+      margin: 0;
+      button.owl-:hover,
+      button.owl-next:hover,
+      button.owl-prev,
+      button.owl-next {
+        position: absolute;
+        content: '';
+        top: 68.5px;
+        width: 10px;
+        height: 10px;
+        margin: 0;
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+        border-radius: 0;
+        transform: rotate(45deg);
+        color: rgba(0, 0, 0, 0);
+        background: rgba(0, 0, 0, 0);
+      }
+      button.owl-prev {
+        left: 20px;
+      }
+      button.owl-next,
+      button.owl-next:hover {
+        right: 20px;
+        transform: rotate(225deg);
+      }
+    }
+  }
+
+  // room-infoo
+  .short-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .room-number {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      cursor: default;
+      span {
+        font-family: $titleFont;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        color: $dark-shade-100;
+        margin-right: 4px;
+        padding-bottom: 1px;
+      }
+      &.luxury:after {
+        position: absolute;
+        content: 'люкс';
+        font-family: $mainFont sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #BC9CFF;
+        bottom: 3px;
+        right: -45px;
+      }
+    }
+    .room-price {
+      span {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 18px;
+        color: $dark-shade-50;
+        i {
+          font-weight: normal;
+          font-style: normal;
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+  .room-info {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-bottom: 18px;
+  }
+
+  .short-info {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+  }
+  .short-info, 
+  .room-rating-reviews {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+  // room-rating
+  .room-rating-reviews {
+    padding-top: 8px;
+    .reviews span{
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 18px;
+      color: $dark-shade-50;
+    }
+    .reviews span i{
+      font-weight: normal;
+      font-style: normal;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}

@@ -1,5 +1,8 @@
-$('#date-birthday').datepicker({
-  navTitles: {
-    days: 'MM yyyy'
-  }
+$(document).ready(() => {
+  $('#date-birthday').datepicker({
+    navTitles: {
+      days: 'MM yyyy'
+    },
+    autoClose: true
+  })
 })

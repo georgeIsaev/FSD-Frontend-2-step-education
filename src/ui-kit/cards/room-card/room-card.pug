@@ -1,0 +1,49 @@
+-
+  var roomsInfo = [
+    {
+      img:[
+        {src: 'assets/img/room_888.png', alt: 'room'},
+        {src: 'assets/img/room_888.png', alt: 'room'},
+        {src: 'assets/img/room_888.png', alt: 'room'},
+        {src: 'assets/img/room_888.png', alt: 'room'}
+      ],
+      extraClass: 'luxury',
+      roomNumb: '888',
+      price: '9 990',
+      rating: '5',
+      reviewsCount: '145'
+    },{
+      img:[
+        {src: 'assets/img/room_840.png', alt: 'room'},
+        {src: 'assets/img/room_840.png', alt: 'room'},
+        {src: 'assets/img/room_840.png', alt: 'room'},
+        {src: 'assets/img/room_840.png', alt: 'room'}
+      ],
+      extraClass: '',
+      roomNumb: '840',
+      price: '9 900',
+      rating: '4',
+      reviewsCount: '65'
+    }
+  ]
+  
+mixin room-card(dataRooms)
+  .room-card
+    .owl-carousel.owl-theme
+      - for (let i = 0; i < dataRooms.img.length; i++){
+          img.room-card-img(src= dataRooms.img[i].src alt= dataRooms.img[i].alt)
+      - }
+    .room-info
+      .short-info
+        .room-number(class= dataRooms.extraClass)
+          span №
+          h2= dataRooms.roomNumb
+        .room-price
+          span #{dataRooms.price}&#8381; 
+            i в сутки
+      .room-rating-reviews
+        .rating
+          +rute-button(dataRooms.rating, id= dataRooms.roomNumb)
+        .reviews
+          span= dataRooms.reviewsCount
+            i  Отзывов
