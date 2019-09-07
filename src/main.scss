@@ -106,5 +106,8 @@ section, .section {
 
 // ui-kit modules
 // @import "./ui-kit/form-elements/form-elements.scss";
-@import "./ui-kit/cards/cards.scss";
-@import "./ui-kit/header/header.scss";
+@import "./pages/home/home.scss";
+@import "./pages/room-details/room-details.scss";
+@import "./pages/search-room/search-room.scss";
+@import "./pages/signIn/signIn.scss";
+@import "./pages/signUp/signUp.scss";

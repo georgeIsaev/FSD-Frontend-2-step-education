@@ -19,9 +19,11 @@ import 'owl.carousel'
 
 
 //JS
-import './ui-kit/form-elements/form-elements.js'
-import './ui-kit/cards/cards.js'
-import './ui-kit/header/header.js'
+import './pages/home/home'
+import './pages/room-details/room-details'
+import './pages/search-room/search-room'
+import './pages/signIn/signIn'
+import './pages/signUp/signUp'
 // SCSS
 import './main.scss'
 

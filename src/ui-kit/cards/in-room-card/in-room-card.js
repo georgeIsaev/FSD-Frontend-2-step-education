@@ -1,3 +1,6 @@
+import '../../form-elements/date-dropdown/date-dropdown'
+import '../../form-elements/quantity-dropdown/quantity-dropdown'
+
 $(document).ready(() => {
   let sumPrice = $('.cost-calculation').find('.at-days')
   let totalCost = $('.total-cost').find('.total-price')

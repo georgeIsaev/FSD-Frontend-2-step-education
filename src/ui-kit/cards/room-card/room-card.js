@@ -1,3 +1,5 @@
+import '../../form-elements/rute-button/rute-button'
+
 $(document).ready(() => {
   $('.owl-carousel').owlCarousel({
     loop: true,
