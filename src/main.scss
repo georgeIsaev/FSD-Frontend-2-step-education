@@ -89,13 +89,12 @@ section, .section {
 }
 
 .container {
-  width: 100%;
+  width: 80.5%;
   flex: 0 0 auto;
   position: relative;
   margin: 0 auto;
-  max-width: $desktopWidth;
-  @media screen and (max-width: $smDesktopWidth) {
-    max-width: tableWidth;
+  @media screen and (max-width: $desktopWidth) {
+    width: 95%;
   }
   @media screen and (max-width: $tableWidth) {
     max-width: phoneWidth;
@@ -105,7 +104,7 @@ section, .section {
   }
 }
 
-// Modules
-
-@import "./ui-kit/form-elements/form-elements.scss";
+// ui-kit modules
+// @import "./ui-kit/form-elements/form-elements.scss";
 @import "./ui-kit/cards/cards.scss";
+@import "./ui-kit/header/header.scss";

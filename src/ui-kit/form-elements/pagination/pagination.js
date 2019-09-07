@@ -1,4 +1,4 @@
-function pagination (){
+function pagination (dataPages){
   for (let i = 0; i < dataPages.length - 1; i++){
 
     $(dataPages).css("display", "none")
@@ -48,14 +48,15 @@ function pagination (){
 
 $(document).ready(() => {
   let dataPages = $('.pagination__btn').find('a')
-  pagination()
+  
+  pagination(dataPages)
   for (let i = 0; i < dataPages.length; i++){
     if (i < dataPages.length - 1) {
       $(dataPages[i]).click((event) => {
         $('.active-page').removeClass('active-page')
         $(dataPages[i]).addClass('active-page')
         event.preventDefault()
-        pagination()
+        pagination(dataPages)
       })
     } else {
       $(dataPages[i]).click((event) => {
@@ -67,7 +68,7 @@ $(document).ready(() => {
           }
         }
         event.preventDefault()
-        pagination()
+        pagination(dataPages)
       })
     }
   }

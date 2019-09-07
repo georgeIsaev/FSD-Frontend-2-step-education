@@ -21,6 +21,7 @@ import 'owl.carousel'
 //JS
 import './ui-kit/form-elements/form-elements.js'
 import './ui-kit/cards/cards.js'
+import './ui-kit/header/header.js'
 // SCSS
 import './main.scss'
 

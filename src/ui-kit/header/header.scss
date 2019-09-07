@@ -1,1 +1,127 @@
-// header style
+@import '../form-elements/buttons/buttons.scss';
+
+.menu {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 0;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__header__toggle {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: white;
+    cursor: pointer;
+    &:hover {
+      .icon-bar{background: $dark-shade-50;}
+    }
+    .icon-bar {
+      position: absolute;
+      top: 6.5px;
+      left: 4px;
+      width: 20px;
+      height: 3px;
+      background: $dark-shade-75;
+      &:nth-child(2) {top: 12.5px;}
+      &:nth-child(3) {top: 18.5px;}
+    }
+  }
+  &__header {
+    display: none;
+    @media screen and (max-width: $smDesktopWidth) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__collapse {
+    display: flex;
+    flex-direction: row;
+    @media screen and (min-width: $smPhoneWidth) and (max-width: $smDesktopWidth) {
+      position: absolute;
+      flex-direction: column;
+      width: 100%;
+      top: -99999px;
+      .menu__list {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        &__titles,
+        &__btn {
+          text-align: center;
+          margin-right: 0; 
+          padding: 10px 15px;
+          border-top: 1px solid $dark-shade-25;
+        }
+        &__btn a {
+          max-width: 320px;
+          margin: 0 auto;
+          justify-content: center;
+        }
+        &__btn:last-child {
+          padding-top: 0;
+          border-top: none;
+        }
+      }
+    }//@media $smDesktopWidth
+
+    @media screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
+      .menu__list__titles, 
+      .menu__list__btn {
+        text-align: left;
+      }
+    }//@media $phoneWidth
+    
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__titles,
+    &__btn {
+      margin-right: 20px;
+    }
+
+    &__btn:last-child {margin-right: 0;}
+
+    &__titles a {
+      font-family: $mainFont;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 17px;
+      color: $dark-shade-50;
+    }
+    &__btn a {
+      display: flex;
+      align-items: center;
+      width: auto;
+      height: 34px;
+      padding: 9px 20px 10px;
+    }
+
+    &__titles._dropdown a {
+      position: relative;
+      padding-right: 24px;
+      .glyphicon {
+        position: absolute;
+        top: 4px;
+        right: 8px;
+        width: 8px;
+        height: 8px;
+        border-left: 2px solid $dark-shade-50;
+        border-bottom: 2px solid $dark-shade-50;
+        pointer-events: none;
+        transform: rotate(-45deg)
+      }
+    }
+  }
+}
