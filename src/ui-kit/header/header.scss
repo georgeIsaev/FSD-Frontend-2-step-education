@@ -43,40 +43,54 @@
   &__collapse {
     display: flex;
     flex-direction: row;
+
     @media screen and (min-width: $smPhoneWidth) and (max-width: $smDesktopWidth) {
-      position: absolute;
-      flex-direction: column;
-      width: 100%;
-      top: -99999px;
+      flex-grow: 1;
+      justify-content: flex-end;
+
       .menu__list {
+        position: absolute;
+        width: 100%;
+        top: -99999px;
+        left: 0;
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        &__titles,
-        &__btn {
+        &__titles {
           text-align: center;
           margin-right: 0; 
           padding: 10px 15px;
           border-top: 1px solid $dark-shade-25;
         }
-        &__btn a {
-          max-width: 320px;
-          margin: 0 auto;
-          justify-content: center;
-        }
-        &__btn:last-child {
-          padding-top: 0;
-          border-top: none;
+      }
+      .menu__btn {
+        margin-right: 20px;
+        .btn{
+          font-size: 10px;
+          height: 30px;
         }
       }
-    }//@media $smDesktopWidth
+
+      .menu__signIn {
+        padding-left: 0;
+        padding-right: 30px;
+        border-left: none;
+      }
+    }//@media $smPhoneWidth to $smDesktopWidth
 
     @media screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
-      .menu__list__titles, 
-      .menu__list__btn {
+      .menu__list__titles {
         text-align: left;
       }
-    }//@media $phoneWidth
+      .menu__btn .btn{
+        font-size: 10px;
+        height: auto;
+        padding: 5px 15px;
+        margin-right: 0;
+      }
+      .menu__btn .btn:last-child{display: none;}
+      .menu__signIn {padding-right: 20px;}
+    }//@media $smPhoneWidth to $phoneWidth
     
   }
 
@@ -85,12 +99,9 @@
     flex-direction: row;
     align-items: center;
 
-    &__titles,
-    &__btn {
+    &__titles {
       margin-right: 20px;
     }
-
-    &__btn:last-child {margin-right: 0;}
 
     &__titles a {
       font-family: $mainFont;
@@ -99,13 +110,6 @@
       font-size: 14px;
       line-height: 17px;
       color: $dark-shade-50;
-    }
-    &__btn a {
-      display: flex;
-      align-items: center;
-      width: auto;
-      height: 34px;
-      padding: 9px 20px 10px;
     }
 
     &__titles._dropdown a {
@@ -122,6 +126,32 @@
         pointer-events: none;
         transform: rotate(-45deg)
       }
+    }
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .btn {
+      display: flex;
+      align-items: center;
+      width: auto;
+      height: 34px;
+      padding: 10px 20px;
+      margin-right: 20px;
+    }
+    .btn:last-child {margin-right: 0;}
+  }
+
+  &__signIn {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-left: 1px solid rgba(31, 32, 65, 0.1);
+    a {
+      line-height: 17px;
+      color: $dark-shade-50;
     }
   }
 }

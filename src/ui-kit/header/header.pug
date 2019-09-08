@@ -1,18 +1,12 @@
 include ../form-elements/buttons/buttons
 
-block header
+mixin header(isSignIn)
   nav 
     .container
       .menu
         .menu__logo
           a(href="")
             img(src="../../assets/img/logo.svg" alt="logotype")
-
-        .menu__header
-          button.menu__header__toggle._collapsed
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
 
         .menu__collapse
           ul.menu__list
@@ -28,7 +22,15 @@ block header
             li.menu__list__titles._dropdown
               a(href="") Соглашения
                 span.glyphicon
-            li.menu__list__btn
+          if isSignIn != 'isSignIn'
+            .menu__btn
               +buttons("btn_type_empty", "", "Войти")
-            li.menu__list__btn
               +buttons("btn_type_sm", "", "Зарегистрироваться")
+          else
+            .menu__signIn
+              a(href="") Георгий Исаев
+        .menu__header
+          button.menu__header__toggle._collapsed
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
