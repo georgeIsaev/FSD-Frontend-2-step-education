@@ -8,6 +8,7 @@
   box-sizing: border-box;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  background: white;
 
   &__title {
     margin-bottom: 20px;
@@ -21,5 +22,47 @@
   .date-dropdown__input:focus,
   .iqdropdown__input:focus {
     border: 1px solid $dark-shade-25;
+  }
+}
+
+@media screen and (max-width: $phoneWidth) {
+  .search-rooms {
+    width: 280px;
+    box-sizing: content-box;
+    .date-dropdown {
+      justify-content: space-between;
+      &__input {width: 129px;}
+      &__glyphicon {display: none;}
+    }
+    .btn {width: 280px;}
+  }
+}
+
+@media screen and (max-width: $phoneWidth) {
+  .search-rooms {
+    width: 280px;
+    box-sizing: content-box;
+    .date-dropdown {
+      justify-content: space-between;
+      &__input {
+        width: 129px;
+      }
+      &__glyphicon {display: none;}
+    }
+    .btn {width: 280px;}
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .search-rooms {
+    padding: 20px 15px;
+    .date-dropdown {
+      justify-content: space-between;
+      &__input {
+        width: 129px;
+      }
+      &__glyphicon {display: none;}
+    }
+    .btn {width: 280px;}
   }
 }

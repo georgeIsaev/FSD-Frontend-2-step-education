@@ -5,12 +5,10 @@ $(document).ready(() => {
 
   menuCollapseOpener.click((event) => {
     if (menuCollapsedList.css('top') != '70px') {
-      placeForMenu.css('display', 'block')
       menuCollapsedList.css({
         'top': '70px'
       })
     } else {
-      placeForMenu.css('display', 'none')
       menuCollapsedList.css({
         'top': '-99999px'
       })

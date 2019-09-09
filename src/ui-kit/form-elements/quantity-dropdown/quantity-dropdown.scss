@@ -154,10 +154,16 @@
 }
 
 .isSelectionRooms {
-  .iqdropdown__input-btn {
-    width: 266px;
-  }
-  .iqdropdown-menu{
-    width: 266px;
+  .iqdropdown__input-btn {width: 266px;}
+  .iqdropdown-menu {width: 266px;}
+}
+
+
+@media screen and (max-width: $phoneWidth) {
+  .iqdropdown__input-btn {width: 280px;}
+  .isSelectionGuests {
+    .iqdropdown-menu {
+      width: 280px;
+    }
   }
 }

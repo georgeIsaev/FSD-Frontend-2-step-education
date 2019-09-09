@@ -1,5 +1,6 @@
 include ../../ui-kit/header/header
 include ../../ui-kit/footer/footer
+include ../../ui-kit/cards/search-rooms-card/search-rooms-card
 
 html(lang='en')
   head
@@ -8,10 +9,13 @@ html(lang='en')
     meta(name="viewport", content="initial-scale=1.0, width=device-width")
   body
     .wrapper
-      +header('isSignIn')
+      +header('')
       .content
         .container
-          h1 Hellow
+          .search-rooms__card
+            +search-rooms-card()
+          .search-rooms__desc
+            p Лучшие номера для вашей работы, отдыха и просто вдохновения 
       +footer
 
     

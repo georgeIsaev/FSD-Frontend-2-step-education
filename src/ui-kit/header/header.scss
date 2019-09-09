@@ -1,11 +1,13 @@
 @import '../form-elements/buttons/buttons.scss';
 
 header {box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);}
-
-.place-for-menu {
-  display: none;
-  height: 230px;
+@media screen and (max-width: $smDesktopWidth) {
+  nav .container {
+    width: 100%;
+    margin: 0;
+  }
 }
+
 .menu {
   position: relative;
   display: flex;
@@ -14,6 +16,9 @@ header {box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);}
   padding: 15px 0;
 
   &__logo {
+    @media screen and (max-width: $smDesktopWidth) {
+      margin-left: 2.5%;
+    }
     display: flex;
     align-items: center;
   }
@@ -43,6 +48,7 @@ header {box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);}
     @media screen and (max-width: $smDesktopWidth) {
       display: flex;
       align-items: center;
+      margin-right: 2.5%;
     }
   }
 
@@ -53,7 +59,6 @@ header {box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);}
     @media screen and (min-width: $smPhoneWidth) and (max-width: $smDesktopWidth) {
       flex-grow: 1;
       justify-content: flex-end;
-
       .menu__list {
         position: absolute;
         width: 100%;
@@ -62,6 +67,8 @@ header {box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);}
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        background: white;
+        z-index: 10000;
         &__titles {
           text-align: center;
           margin-right: 0; 

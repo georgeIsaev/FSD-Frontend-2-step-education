@@ -93,19 +93,19 @@ section, .section {
   flex: 0 0 auto;
   position: relative;
   margin: 0 auto;
-  @media screen and (max-width: $desktopWidth) {
+  @media screen and (min-width: $phoneWidth) and (max-width: $desktopWidth) {
     width: 95%;
   }
   @media screen and (max-width: $tableWidth) {
     max-width: phoneWidth;
   }
-  @media screen and (max-width: $phoneWidth) {
-    max-width: smPhoneWidth;
+  @media screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
+    width: 100%;
+    margin: 0;
   }
 }
 
-// ui-kit modules
-// @import "./ui-kit/form-elements/form-elements.scss";
+// pages
 @import "./pages/home/home.scss";
 @import "./pages/room-details/room-details.scss";
 @import "./pages/search-room/search-room.scss";

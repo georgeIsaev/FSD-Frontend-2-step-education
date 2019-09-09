@@ -178,3 +178,33 @@
     }
   }
 }
+
+
+@media screen and (max-width: $phoneWidth) {
+  .datepicker {
+    width: 280px;
+    &--content .datepicker--days-names,
+    &--content .datepicker--cells-days {
+      width: 100%;
+    }
+    &--content .datepicker--day-name,
+    &--content .datepicker--cell-day {
+      width: 34px;
+      height: 34px;
+    }
+
+    .-range-from-,
+    .-range-to-,
+    .-selected-.datepicker--cell-day.-other-month-, 
+    .-selected-.datepicker--cell-year.-other-decade-,
+    .-selected-.datepicker--cell-day {
+      width: 34px;
+      height: 34px;
+    }
+    .-range-from-:after,
+    .-range-to-:before {
+      width: 17px;
+      height: 34px;
+    }
+  }
+}
