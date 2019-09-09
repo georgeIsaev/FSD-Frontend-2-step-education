@@ -1,6 +1,8 @@
 .subscription-text-field {
-  position: relative;
   width: 266px;
+  .input-with-link {
+    position: relative;
+  }
   &__caption {
     display: block;
     font-family: $mainFont;
@@ -16,7 +18,7 @@
     position: absolute;
     width: 18px;
     height: 18px;
-    top: 33px;
+    top: 13px;
     right: 13px;
     cursor: pointer;
   }
@@ -46,5 +48,12 @@
       border: 1px solid $dark-shade-50;
       color: $dark-shade-75;
     }
+  }
+}
+
+@media screen and (max-width: $desktopWidth) {
+  .subscription-text-field {
+    width: auto;
+    &__input {width: 100%;}
   }
 }

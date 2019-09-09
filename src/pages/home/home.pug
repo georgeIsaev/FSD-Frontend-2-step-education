@@ -1,10 +1,17 @@
+include ../../ui-kit/header/header
+include ../../ui-kit/footer/footer
+
 html(lang='en')
   head
     meta(charse="utf-8")
     title Home
     meta(name="viewport", content="initial-scale=1.0, width=device-width")
-  body 
-    include ../../ui-kit/header/header
-    +header('isSignIn')
+  body
+    .wrapper
+      +header('isSignIn')
+      .content
+        .container
+          h1 Hellow
+      +footer
 
     

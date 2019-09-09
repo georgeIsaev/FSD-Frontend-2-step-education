@@ -1,5 +1,7 @@
 mixin subscription-text-field(caption, placeholder, subLink)
   .subscription-text-field
-    label.subscription-text-field__caption= caption
-    a.subscription-text-field__btn.glyphicon_next(href= subLink)
-    input.subscription-text-field__input(type="text" name="data" placeholder= placeholder autocomplete="off")
+    if caption
+      label.subscription-text-field__caption= caption
+    .input-with-link
+      a.subscription-text-field__btn.glyphicon_next(href= subLink)
+      input.subscription-text-field__input(type="text" name="data" placeholder= placeholder autocomplete="off")

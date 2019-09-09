@@ -1,1 +1,123 @@
-// footer style
+@import "../form-elements/subscription-text-field/subscription-text-field.scss";
+
+footer {box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);}
+.footer__body {box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);}
+
+.footer__body .container,
+.footer__copyright .container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 100px 0;
+}
+
+.footer__body .container{
+  .logo-desc {
+    width: 20%;
+    .desc {
+      margin-top: 20px;
+    }
+  }
+
+  .subscribe {width: 20%;}
+  .list__titles {
+    margin-bottom: 20px;
+    h3 {
+      letter-spacing: normal;
+      text-transform: uppercase;
+      margin-bottom: 21px;
+    }
+    a {
+      line-height: 17px;
+      color: $dark-shade-50;
+      text-transform: capitalize;
+    }
+    &:last-child {margin-bottom: 0;}
+  }
+}
+
+.footer__copyright .container{
+  padding: 25px 0;
+  .copyright {
+    display: flex;
+    align-items: center;
+    p {line-height: 17px;}
+  }
+  .social {
+    display: flex;
+    flex-direction: row;
+    a {
+      width: 24px;
+      height: 24px;
+      margin-left: 20px;
+      background: url("assets/img/css_sprites.png") no-repeat;
+      &:first-child {margin-left: 0;}
+    }
+    .twitter {background-position: -10px -126px;}
+    .facebook {background-position: -65px -69px;}
+    .instagram {background-position: -129px -9px;}
+
+  }
+}
+
+@media screen and (min-width: $phoneWidth) and (max-width: $smDesktopWidth) {
+  .footer__body {box-shadow: none;}
+
+  .navigation,
+  .about,
+  .support,
+  .subscribe,
+  .copyright {
+    display: none;
+  }
+  
+  .footer__body .container,
+  .footer__copyright .container{
+    display: flex;
+    justify-content: center;
+    padding: 100px 0 0;
+  }
+  .footer__copyright .container {
+    .copyright {display: none;}
+    padding: 25px 0 110px;
+  }
+  .footer__body .container .logo-desc {
+    width: 60%;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
+  .footer__body .container, 
+  .footer__copyright .container{padding: 60px 0 0;}
+
+  .footer__copyright .container {padding: 25px 0 70px;}
+  .footer__body .container .logo-desc {width: 70%;}
+}
+
+@media screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
+  .footer__body {box-shadow: none;}
+
+  .navigation,
+  .about,
+  .support,
+  .subscribe,
+  .copyright {
+    display: none;
+  }
+  
+  .footer__body .container,
+  .footer__copyright .container{
+    display: flex;
+    justify-content: center;
+    padding: 40px 0 0;
+  }
+  .footer__copyright .container {
+    .copyright {display: none;}
+    padding: 25px 0 55px;
+  }
+  .footer__body .container .logo-desc {
+    width: 90%;
+    text-align: center;
+  }
+}

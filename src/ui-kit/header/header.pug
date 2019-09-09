@@ -1,36 +1,38 @@
 include ../form-elements/buttons/buttons
 
 mixin header(isSignIn)
-  nav 
-    .container
-      .menu
-        .menu__logo
-          a(href="")
-            img(src="../../assets/img/logo.svg" alt="logotype")
+  header
+    nav 
+      .container
+        .menu
+          .menu__logo
+            a(href="")
+              img(src="../../assets/img/logo.svg" alt="logotype")
 
-        .menu__collapse
-          ul.menu__list
-            li.menu__list__titles
-              a(href="") О нас
-            li.menu__list__titles._dropdown
-              a(href="") Услуги
-                span.glyphicon
-            li.menu__list__titles
-              a(href="") Вакансии
-            li.menu__list__titles
-              a(href="") Новости
-            li.menu__list__titles._dropdown
-              a(href="") Соглашения
-                span.glyphicon
-          if isSignIn != 'isSignIn'
-            .menu__btn
-              +buttons("btn_type_empty", "", "Войти")
-              +buttons("btn_type_sm", "", "Зарегистрироваться")
-          else
-            .menu__signIn
-              a(href="") Георгий Исаев
-        .menu__header
-          button.menu__header__toggle._collapsed
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
+          .menu__collapse
+            ul.menu__list
+              li.menu__list__titles
+                a(href="") О нас
+              li.menu__list__titles._dropdown
+                a(href="") Услуги
+                  span.glyphicon
+              li.menu__list__titles
+                a(href="") Вакансии
+              li.menu__list__titles
+                a(href="") Новости
+              li.menu__list__titles._dropdown
+                a(href="") Соглашения
+                  span.glyphicon
+            if isSignIn != 'isSignIn'
+              .menu__btn
+                +buttons("btn_type_empty", "", "Войти")
+                +buttons("btn_type_sm", "", "Зарегистрироваться")
+            else
+              .menu__signIn
+                a(href="") Георгий Исаев
+          .menu__header
+            button.menu__header__toggle._collapsed
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+        .place-for-menu
