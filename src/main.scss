@@ -32,7 +32,7 @@ body {
 *, *:before, *:after { box-sizing: border-box; }
 
 h1, h2, h3 {
-  font-family: $titleFont sans-serif;;
+  font-family: $titleFont sans-serif;
   font-style: normal;
   font-weight: bold;
   color: $dark-shade-100;
@@ -96,9 +96,9 @@ section, .section {
   @media screen and (min-width: $phoneWidth) and (max-width: $desktopWidth) {
     width: 95%;
   }
-  @media screen and (max-width: $tableWidth) {
-    max-width: phoneWidth;
-  }
+  // @media screen and (max-width: $tableWidth) {
+  //   max-width: phoneWidth;
+  // }
   @media screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
     width: 100%;
     margin: 0;

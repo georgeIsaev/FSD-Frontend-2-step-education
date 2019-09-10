@@ -45,7 +45,7 @@
       height: 18px;
       background: url("assets/img/css_sprites.png") no-repeat -94px -128px;
       &:first-child {
-        transform: rotate(180deg)
+        transform: rotate(180deg);
       }
       &:hover {
         background: url("assets/img/css_sprites.png") no-repeat -94px -128px;
@@ -100,7 +100,7 @@
       font-size: 14px;
     }
     .-other-month- {
-      color: $dark-shade-25
+      color: $dark-shade-25;
     }
     .-in-range-, 
     .-in-range-.datepicker--cell-day.-other-month-, 

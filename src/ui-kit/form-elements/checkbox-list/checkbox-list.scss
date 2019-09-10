@@ -21,10 +21,10 @@
       pointer-events: none;
     }
     .glyphicon_down {
-      transform: rotate(-45deg)
+      transform: rotate(-45deg);
     }
     .glyphicon_up {
-      transform: rotate(135deg)
+      transform: rotate(135deg);
     }
   }
 
@@ -91,7 +91,7 @@
 .checkbox-list._isExpandable {
   width: 266px;
   .checkbox-list__caption {
-    cursor: pointer;;
+    cursor: pointer;
   }
   .checkbox-list__menu {
     display: none;
