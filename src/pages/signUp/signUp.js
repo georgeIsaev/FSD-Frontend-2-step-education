@@ -1,0 +1,1 @@
+import '../../ui-kit/cards/signUp-card/signUp-card'

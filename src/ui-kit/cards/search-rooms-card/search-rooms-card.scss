@@ -38,31 +38,6 @@
   }
 }
 
-@media screen and (max-width: $phoneWidth) {
-  .search-rooms {
-    width: 280px;
-    box-sizing: content-box;
-    .date-dropdown {
-      justify-content: space-between;
-      &__input {
-        width: 129px;
-      }
-      &__glyphicon {display: none;}
-    }
-    .btn {width: 280px;}
-  }
-}
-
 @media screen and (max-width: 350px) {
-  .search-rooms {
-    padding: 20px 15px;
-    .date-dropdown {
-      justify-content: space-between;
-      &__input {
-        width: 129px;
-      }
-      &__glyphicon {display: none;}
-    }
-    .btn {width: 280px;}
-  }
+  .search-rooms {padding: 20px 15px;}
 }

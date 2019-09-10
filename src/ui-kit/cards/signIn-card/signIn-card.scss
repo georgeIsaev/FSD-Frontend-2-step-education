@@ -8,6 +8,7 @@
   box-sizing: border-box;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  background: white;
 
   &__title {
     margin-bottom: 20px;
@@ -28,4 +29,18 @@
       line-height: 18px;
     }
   }
+}
+
+@media screen and (max-width: $phoneWidth) {
+  .signIn {
+    width: 280px;
+    box-sizing: content-box;
+    .text-field__input {width: 280px;}
+    .btn {width: 280px;}
+    .btn_type_empty {width: 105px;}
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .signIn {padding: 20px 15px;}
 }

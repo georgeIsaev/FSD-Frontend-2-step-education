@@ -15,9 +15,9 @@ let flagZerro = false
 function toggleGlyphicon (dropdown){
   let whichDropdown = $(dropdown).find('.iqdropdown-menu')
   if (whichDropdown.hasClass('menu-open')){
-    $(dropdown).find('.iqdropdown-selection').find('span').toggleClass('glyphicon_down glyphicon_up')
+    $(dropdown).find('.iqdropdown-selection').find('span').toggleClass('_active')
   } else if ($('#iqOpen').click(() => {})) {
-    $(dropdown).find('.iqdropdown-selection').find('span').toggleClass('glyphicon_down glyphicon_up')
+    $(dropdown).find('.iqdropdown-selection').find('span').toggleClass('_active')
   }
 }
 
@@ -71,7 +71,7 @@ function clearBtnForDropdown (dropdown){
     guests['babies'] = 0
     flagZerro = true
     $(dropdown).find('.counter').html('0')
-    $(dropdown).find('.iqdropdown-selection').html('Сколько гостей' + '<span class="iqdropdown__glyphicon glyphicon_up"></span>')
+    $(dropdown).find('.iqdropdown-selection').html('Сколько гостей' + '<span class="iqdropdown__glyphicon _active"></span>')
     $(dropdown).find('.iqdropdown__input-btn').css({
       'border-color': 'rgba(31, 32, 65, 0.5)',
       'border-bottom-right-radius': '0',
@@ -130,7 +130,7 @@ $(document).ready(() => {
       } else if ((guests['babies'] > 1) && (guests['babies'] < 5)){
         textDrop = `${textDrop}, ${guests['babies']} младенца` 
       }
-      guestsDropdown.find('.iqdropdown-selection').html(`${textDrop}<span class="iqdropdown__glyphicon glyphicon_up"></span>`)
+      guestsDropdown.find('.iqdropdown-selection').html(`${textDrop}<span class="iqdropdown__glyphicon _active"></span>`)
       if (count > 0){
         $(`[data-id=${id}]`).find('.button-decrement').css('border-color', 'rgba(31, 32, 65, 0.5)')
       } else {
@@ -234,9 +234,9 @@ $(document).ready(() => {
         textDrop = `${textDrop}, ${bathrooms} ванные комнаты`
       }
       if (textDrop.length < 21){
-        roomsDropdown.find('.iqdropdown-selection').html(`${textDrop}<span class="iqdropdown__glyphicon glyphicon_up"></span>`)
+        roomsDropdown.find('.iqdropdown-selection').html(`${textDrop}<span class="iqdropdown__glyphicon _active"></span>`)
       } else {
-        roomsDropdown.find('.iqdropdown-selection').html(`${textDrop.substring(0, 20)}... <span class="iqdropdown__glyphicon glyphicon_up"></span>`)
+        roomsDropdown.find('.iqdropdown-selection').html(`${textDrop.substring(0, 20)}... <span class="iqdropdown__glyphicon _active"></span>`)
       }
       
       if (count > 0){
@@ -250,7 +250,7 @@ $(document).ready(() => {
         roomsDropdown.find('.iqdropdown-menu-option').find('.button-increment').css('border-color', 'rgba(31, 32, 65, 0.5)')
       }
       if (totalRooms == 0){
-        roomsDropdown.find('.iqdropdown-selection').html('Сколько комнат <span class="iqdropdown__glyphicon glyphicon_up"></span>')
+        roomsDropdown.find('.iqdropdown-selection').html('Сколько комнат <span class="iqdropdown__glyphicon _active"></span>')
       } 
     },
     // return false to prevent an item decrement

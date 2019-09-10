@@ -1,6 +1,17 @@
+include ../../ui-kit/header/header
+include ../../ui-kit/footer/footer
+include ../../ui-kit/cards/signUp-card/signUp-card
+
 html(lang='en')
   head
     meta(charse="utf-8")
-    title SignUp
+    title SignIn
     meta(name="viewport", content="initial-scale=1.0, width=device-width")
-  body 
+  body
+    .wrapper
+        +header('')
+        .content._sign._signUp
+          .container
+            .signUp-card
+              +signUp-card()
+        +footer

@@ -14,7 +14,7 @@ mixin quantity-dropdown(items, label, caption)
   .iqdropdown&attributes(attributes)
     label.iqdropdown__caption= caption
     button.iqdropdown__input-btn.iqdropdown-selection= label
-      span.iqdropdown__glyphicon.glyphicon_down
+      span.iqdropdown__glyphicon
     .iqdropdown-menu
       - for (let i = 0; i < items.length; i++){
           .iqdropdown-menu-option(

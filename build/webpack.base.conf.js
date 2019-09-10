@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -17,7 +16,6 @@ const PATHS = {
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 // const PAGES_DIR = PATHS.src
 const PAGES_DIR = `${PATHS.src}/pages/`
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 
 module.exports = {
   // BASE config

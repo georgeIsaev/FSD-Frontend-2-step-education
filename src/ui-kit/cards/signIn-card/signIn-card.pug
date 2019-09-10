@@ -1,7 +1,7 @@
 include ../../form-elements/text-field/text-field
 include ../../form-elements/buttons/buttons
 
-block signIn-card
+mixin signIn-card
   .signIn
     form(action="", method="", name="signIn")
       h1.signIn__title Войти
@@ -10,4 +10,4 @@ block signIn-card
       +buttons("btn_type_lg", "", "Войти")
       ._isSignUp
         p Нет аккаунта на Toxin?
-        +buttons("btn_type_empty", "", "Создать")
+        +buttons("btn_type_empty", "signUp.html", "Создать")

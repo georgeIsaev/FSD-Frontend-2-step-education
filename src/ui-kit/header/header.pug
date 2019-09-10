@@ -6,7 +6,7 @@ mixin header(isSignIn)
       .container
         .menu
           .menu__logo
-            a(href="")
+            a(href="home.html")
               img(src="../../assets/img/logo.svg" alt="logotype")
 
           .menu__collapse
@@ -25,8 +25,8 @@ mixin header(isSignIn)
                   span.glyphicon
             if isSignIn != 'isSignIn'
               .menu__btn
-                +buttons("btn_type_empty", "", "Войти")
-                +buttons("btn_type_sm", "", "Зарегистрироваться")
+                +buttons("btn_type_empty", "signIn.html", "Войти")
+                +buttons("btn_type_sm", "signUp.html", "Зарегистрироваться")
             else
               .menu__signIn
                 a(href="") Георгий Исаев

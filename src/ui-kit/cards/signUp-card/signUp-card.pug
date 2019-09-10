@@ -4,7 +4,7 @@ include ../../form-elements/date-birthday/date-birthday
 include ../../form-elements/toggle/toggle
 include ../../form-elements/buttons/buttons
 
-block signUp-card
+mixin signUp-card
   .signUp
     form(action="", method="", name="signUp")
       h1.signUp__title Регистрация аккаунта
@@ -18,4 +18,4 @@ block signUp-card
       +buttons("btn_type_lg", "", "Перейти к оплате")
       ._isSignIn
         p Уже есть аккаунт на Toxin
-        +buttons("btn_type_empty", "", "Войти")
+        +buttons("btn_type_empty", "signIn.html", "Войти")

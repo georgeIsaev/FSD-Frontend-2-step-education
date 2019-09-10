@@ -46,14 +46,11 @@
     border-left: 2px solid $dark-shade-50;
     border-bottom: 2px solid $dark-shade-50;
     pointer-events: none;
+    transform: rotate(-45deg);
   }
   
-  .glyphicon_down {
-    transform: rotate(-45deg)
-  }
-  
-  .glyphicon_up {
-    transform: rotate(135deg);
+  ._active {
+    border-color: $dark-shade-75;
   }
   
   &-menu {
