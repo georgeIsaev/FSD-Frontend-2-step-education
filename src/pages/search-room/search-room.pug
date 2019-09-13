@@ -1,6 +1,37 @@
+include ../../ui-kit/header/header
+include ../../ui-kit/footer/footer
+include ../../ui-kit/form-elements/filter-date-dropdown/filter-date-dropdown
+include ../../ui-kit/form-elements/quantity-dropdown/quantity-dropdown
+include ../../ui-kit/form-elements/range-slider/range-slider
+include ../../ui-kit/form-elements/checkbox-list/checkbox-list
+include ../../ui-kit/form-elements/pagination/pagination
+include ../../ui-kit/cards/room-card/room-card
+
 html(lang='en')
   head
     meta(charse="utf-8")
-    title Search room
+    title Подбор номера
     meta(name="viewport", content="initial-scale=1.0, width=device-width")
-  body 
+  body
+    .wrapper
+      +header('')
+      .content._search-room
+        .container
+          button.filters__btn._open Фильтры
+          aside.filters
+            +filter-date-dropdown("Даты пребывания в отеле")
+            +quantity-dropdown(guests, "Сколько гостей", "Гости")(class="isSelectionGuests")
+            +range-slider()
+            +checkbox-list("Checkbox buttons", rulesList)
+            +checkbox-list("Доступность", servicesList, "_isRich")
+            +quantity-dropdown(rooms, "Выберите удобства", "Удобства номера")(class="isSelectionRooms")
+            +checkbox-list("Дополнительные удобства", includingList, "_isExpandable")
+            button.filters__btn._apply Применить
+          section.seletion-rooms
+            h1.seletion-rooms__title Номера, которые мы для вас подобрали
+            .seletion-rooms__cards-block
+              - for (let i = 0; i < roomsInfo.length; i++){
+                  +room-card(roomsInfo[i])
+              - }
+            +pagination(pagination)
+      +footer
