@@ -1,6 +1,7 @@
-mixin range-slider()
+mixin range-slider(caption, desc)
   .range-slider
     .range-slider__header
-      h3.header__caption Range slider
+      h3.header__caption= caption
       span.header__amount-interval
     input.js-range-slider(type="text" name="my_range" value="")
+    p.range-slider__desc= desc

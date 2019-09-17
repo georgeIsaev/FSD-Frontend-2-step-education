@@ -21,7 +21,7 @@ html(lang='en')
           aside.filters
             +filter-date-dropdown("Даты пребывания в отеле")
             +quantity-dropdown(guests, "Сколько гостей", "Гости")(class="isSelectionGuests")
-            +range-slider()
+            +range-slider("Диапазон цены", "Стоимость за сутки пребывания в номере")
             +checkbox-list("Checkbox buttons", rulesList)
             +checkbox-list("Доступность", servicesList, "_isRich")
             +quantity-dropdown(rooms, "Выберите удобства", "Удобства номера")(class="isSelectionRooms")

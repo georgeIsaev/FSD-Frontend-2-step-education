@@ -14,10 +14,12 @@
 }
 
 .content._search-room {
+  @media screen and (max-width: 1160px) {padding: 30px 0 70px;}
   flex: 1 0 auto;
   padding: 30px 0 70px;
   border-bottom: 1px solid $dark-shade-25;
   .container {
+    position: relative;
     display: flex;
     flex-direction: row;
     .filters__btn {
@@ -46,9 +48,58 @@
       flex-direction: column;
       width: 266px;
       margin-right: 5.2%;
-      .iqdropdown__input-btn,
+      .iqdropdown__input-btn, .iqdropdown-menu,
       .filter-date-dropdown, .filter-date-dropdown__input,
-      .range-slider {width: 100%;}
+      .range-slider {width: 266px;}
+      > div {
+        margin-bottom: 30px;
+        &:first-of-type {margin-bottom: 20px;}
+        &:last-of-type {margin-bottom: 0;}
+      }
+
+      @media screen and (min-width: 1281px) and (max-width: 1459px) {
+        width: 260px;
+        margin-right: 20px;
+        .iqdropdown__input-btn, .iqdropdown-menu,
+        .filter-date-dropdown, .filter-date-dropdown__input,
+        .range-slider {width: 260px;}
+      }
+      @media screen and (min-width: $phoneWidth) and (max-width: 1160px) {
+        &__btn._open {left: calc(50% - 65px);}
+        &__btn._apply {margin: 30px auto 0;}
+
+        display: flex;
+        position: absolute;
+        top: -30px;
+        left: -99999999px;
+        padding: 30px 60px 30px 140px;
+        width: auto;
+        height: calc(100% + 100px);
+        margin-right: 0;
+        background: white;
+        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+        align-items: center;
+        z-index: 10;
+      }
+      @media screen and (max-width: $phoneWidth) {
+        &__btn._open {left: calc(50% - 65px);}
+        &__btn._apply {margin: 30px auto 0;}
+        
+        display: flex;
+        position: absolute;
+        top: -30px;
+        left: -99999999px;
+        padding: 30px 15px;
+        margin-left: 2.5%;
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        background: white;
+        align-items: center;
+        z-index: 10;
+
+        .checkbox-list {width: 266px;}
+      }
     }
 
     ///////////////
@@ -62,10 +113,87 @@
         flex-direction: row;
         flex-wrap: wrap;
         .room-card {
+          width: 260px;
           margin-right: 12px;
           margin-bottom: 20px;
-          &:nth-child(3n){margin-right: 0;}
+          .owl-carousel.owl-theme {width: 100%;}
         }
+      }
+      @media screen and (min-width: 1877px) {
+        &__cards-block .room-card {
+          &:nth-child(4n){margin-right: 0;}
+        }
+      }
+      @media screen and (min-width: 1460px) and (max-width: 1876px) {
+        &__cards-block {
+          .room-card {
+            width: 270px;
+            &:nth-child(3n){margin-right: 0;}
+          }
+        }
+      }
+      @media screen and (min-width: 1281px) and (max-width: 1459px) {
+        &__cards-block {
+          .room-card {
+            width: 32.3%;
+            margin-right: 10px;
+            &:nth-child(3n){margin-right: 0;}
+            .room-info {
+              h2 {font-size: 18px;}
+              .room-number.luxury:after {right: -43px;}
+              span i {font-size: 11px;}
+            }
+          }
+        }
+      }
+      @media screen and (min-width: 1161px) and (max-width: 1280px) {
+        &__cards-block {
+          .room-card {
+            width: 32.3%;
+            max-width: 270px;
+            margin-right: 10px;
+            &:nth-child(3n){margin-right: 0;}
+          }
+        }
+      }
+      @media screen and (max-width: 1160px) {
+        width: 100vw;
+        .room-card {width: 265px;}
+        &__title {text-align: center;}
+        &__cards-block {justify-content: center;}
+      }
+      @media screen and (max-width: 880px) {
+        width: 100vw;
+        &__title {text-align: center;}
+
+        &__cards-block {
+          justify-content: center;
+          .room-card {
+            width: 270px;
+            &:nth-child(3n){margin-right: 12px;}
+            &:nth-child(2n){margin-right: 0;}
+          }
+        }
+      }
+      @media screen and (max-width: $phoneWidth) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5%;
+        width: 100vw;
+        &__title {text-align: center;}
+
+        &__cards-block {
+          width: 270px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          .room-card {
+            width: 270px;
+            margin: 15px 0 0;
+            &:last-child {margin-bottom: 35px;}
+          }
+        } 
       }
     }
 
@@ -81,184 +209,52 @@ footer {
   flex: 0 0 auto;
 }
 
-@media screen and (min-width: $phoneWidth) and (max-width: $smDesktopWidth) {}
+#datepickers-container .datepicker {
+  width: 266px;
+  &--content .datepicker--days-names,
+  &--content .datepicker--cells.datepicker--cells-days {
+    width: 100%;
+  }
+  &--content .datepicker--day-name,
+  &--content .datepicker--cell-day {
+    width: 32px;
+    height: 32px;
+  }
 
-@media screen and (max-height: $phoneWidth) and (max-width: $smDesktopWidth) and (orientation: landscape) {}
-
-@media screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
-  .content._search-room {
-    padding: 30px 0 70px;
-    .container {
-      position: relative;
-      .filters__btn._open {left: calc(50% - 65px);}
-      .filters__btn._apply {margin: 30px auto 0;}
-
-      ///////////////
-      .filters {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 10%;
-        width: 100vw;
-        height: auto;
-        margin-right: 0;
-        background: white;
-        z-index: 10;
-      }
+  .-range-from-,
+  .-range-to-,
+  .-selected-.datepicker--cell-day.-other-month-, 
+  .-selected-.datepicker--cell-year.-other-decade-,
+  .-selected-.datepicker--cell-day {
+    width: 32px;
+    height: 32px;
+  }
+  .-range-from-:after,
+  .-range-to-:before {
+    width: 16px;
+    height: 32px;
+  }
+  @media screen and (min-width: 1281px) and (max-width: 1459px) {
+    width: 260px;
+    &--content .datepicker--day-name,
+    &--content .datepicker--cell-day {
+      width: 31px;
+      height: 31px;
+    }
   
-      ///////////////
-      .seletion-rooms {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 5%;
-        width: 100vw;
-        &__title {text-align: center;}
-
-        &__cards-block {
-          padding: 0;
-          display: flex;
-          flex-direction: column;
-          .room-card {
-            margin: 15px 0 0;
-            &:last-child {margin-bottom: 35px;}
-          }
-        }
-      }
+    .-range-from-,
+    .-range-to-,
+    .-selected-.datepicker--cell-day.-other-month-, 
+    .-selected-.datepicker--cell-year.-other-decade-,
+    .-selected-.datepicker--cell-day {
+      width: 31px;
+      height: 31px;
+    }
+    .-range-from-:after,
+    .-range-to-:before {
+      width: 15.5px;
+      height: 31px;
     }
   }
 }
 
-@media screen and (min-width: $phoneWidth) and (max-width: 876px) {
-  .content._search-room {
-    padding: 30px 0 70px;
-    .container {
-      position: relative;
-      .filters__btn._open {left: calc(50% - 65px);}
-      .filters__btn._apply {margin: 30px auto 0;}
-      ///////////////
-      .filters {
-        display: none;
-        position: fixed;
-        top: 10%;
-        left: calc(50% - 30vw);
-        padding: 5% 10% 5%;
-        width: 60vw;
-        height: auto;
-        margin-right: 0;
-        background: white;
-        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-        z-index: 10;
-      }
-
-      ///////////////
-      .seletion-rooms {
-        width: 100vw;
-        &__title {text-align: center;}
-
-        &__cards-block {
-          justify-content: center;
-          .room-card {
-            &:nth-child(3n){margin-right: 12px;}
-            &:nth-child(2n){margin-right: 0;}
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 876px) and (max-width: 1160px) {
-  .content._search-room {
-    padding: 30px 0 70px;
-    .container {
-      position: relative;
-      .filters__btn._open {left: calc(50% - 65px);}
-      .filters__btn._apply {margin: 30px auto 0;}
-      ///////////////
-      .filters {
-        display: none;
-        position: fixed;
-        top: 10%;
-        left: calc(50% - 30vw);
-        padding: 5% 10% 5%;
-        width: 60vw;
-        height: auto;
-        margin-right: 0;
-        background: white;
-        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-        z-index: 10;
-      }
-
-      ///////////////
-      .seletion-rooms {
-        width: 100vw;
-        &__title {text-align: center;}
-        &__cards-block {justify-content: center;}
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1161px) and (max-width: 1240px) {
-  .content._search-room .container {
-    .seletion-rooms {
-      &__cards-block {
-        .room-card {
-          width: 32.4%;
-          margin-right: 10px;
-          &:nth-child(3n){margin-right: 0;}
-        }
-        .room-card .owl-carousel.owl-theme {width: 100%;}
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1281px) and (max-width: 1460px) {
-  .content._search-room .container {
-    .filters {
-      width: 260px;
-      margin-right: 20px;
-    }
-
-    .seletion-rooms {
-      &__cards-block {
-        .room-card {
-          width: 32.3%;
-          margin-right: 10px;
-          &:nth-child(3n){margin-right: 0;}
-        }
-        .room-card .owl-carousel.owl-theme {width: 100%;}
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1946px) and (max-width: 2432px) {
-  .content._search-room .container {
-    .seletion-rooms {
-      &__cards-block {
-        .room-card {
-          &:nth-child(3n){margin-right: 12px;}
-          &:nth-child(4n){margin-right: 0;}
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 2433px) {
-  .content._search-room .container {
-    .seletion-rooms {
-      &__cards-block {
-        .room-card {
-          &:nth-child(3n){margin-right: 12px;}
-          &:nth-child(4n){margin-right: 12px;}
-          &:nth-child(5n){margin-right: 0;}
-        }
-      }
-    }
-  }
-}

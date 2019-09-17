@@ -62,4 +62,12 @@
       display: none;
     }
   }
+
+  &__desc {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 14px;
+    color: $dark-shade-50;
+    letter-spacing: -.5px;
+  }
 }

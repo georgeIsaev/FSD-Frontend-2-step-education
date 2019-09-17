@@ -12,14 +12,14 @@ $(document).ready(() => {
   let filters = $('._search-room').find('.filters')
 
   filtersBtnOpen.click((event) => {
-    filters.css('display', 'block')
+    filters.css('left', '-2.5%')
     filtersBtnApply.css('display', 'block')
     filtersBtnOpen.css('display', 'none')
     event.preventDefault()
   })
 
   filtersBtnApply.click((event) => {
-    filters.css('display', 'none')
+    filters.css('left', '-99999999px')
     filtersBtnApply.css('display', 'none')
     filtersBtnOpen.css('display', 'block')
     event.preventDefault()
