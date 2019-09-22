@@ -1,6 +1,69 @@
+include ../../ui-kit/header/header
+include ../../ui-kit/footer/footer
+include ../../ui-kit/cards/in-room-card/in-room-card
+include ../../ui-kit/form-elements/bullet-list/bullet-list
+include ../../ui-kit/form-elements/comment/comment
+include ../../ui-kit/form-elements/room-information/room-information
+
+
 html(lang='en')
   head
     meta(charse="utf-8")
-    title Room details
+    title Home
     meta(name="viewport", content="initial-scale=1.0, width=device-width")
-  body 
+  body
+    .wrapper
+      +header('')
+      .content._room-details
+        .container
+          .room-details__info
+            .info-block
+              .intelligence
+                h2 Сведения о номере
+                +room-information(roomInfData[0])
+                +room-information(roomInfData[1])
+                +room-information(roomInfData[2])
+              .impressions
+                h2 Впечатления от номера
+                .impressions__chart
+                  svg(width="120" height="120" transform="rotate(-90)")
+                    defs
+                      linearGradient(id="bad-gradient")
+                        stop(offset="0%" stop-color="#919191")
+                        stop(offset="100%" stop-color="#3D4975")
+                        
+                      linearGradient(id="passably-gradient")
+                        stop(offset="0%" stop-color="#8BA4F9")
+                        stop(offset="100%" stop-color="#BC9CFF")
+
+                      linearGradient(id="good-gradient")
+                        stop(offset="0%" stop-color="#6FCF97")
+                        stop(offset="100%" stop-color="#66D2EA")
+
+                      linearGradient(id="magnificently-gradient")
+                        stop(offset="0%" stop-color="#FFBA9C")
+                        stop(offset="100%" stop-color="#FFE39C")
+                    
+                    circle(class="bad" r="58" cx="50%" cy="50%" fill="none" stroke="url(#bad-gradient)" stroke-width="0")
+                    circle(class="passably" r="58" cx="50%" cy="50%" fill="none" stroke="url(#passably-gradient)")
+                    circle(class="good" r="58" cx="50%" cy="50%" fill="none" stroke="url(#good-gradient)")
+                    circle(class="magnificently" r="58" cx="50%" cy="50%" fill="none" stroke="url(#magnificently-gradient)")
+            .comments-block
+              .comments-block__header
+                h2 Отзывы посетителей номера
+                span 2 отзыва
+              +comment(comments[0])
+              +comment(comments[1])
+            .rools-block
+              +bullet-list("Правила", bulletList)
+              .cancel
+                h2 Отмена
+                p 
+                  | Бесплатная отмена в течение 48 ч. После 
+                  | этого при отмене не позднее чем за 5 дн. до 
+                  | прибытия вы получите полный возврат за 
+                  | вычетом сбора за услуги.
+
+          .room-details__card
+            +in-room-card(roomsInfo[0])
+      +footer

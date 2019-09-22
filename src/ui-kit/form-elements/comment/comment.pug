@@ -1,11 +1,22 @@
+include ../like-button/like-button
 -
-  var comments = {
-    src: 'assets/img/avatar.png', 
-    author: 'Мурад Сарафанов', 
-    text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 
-    date: '5 дней', 
-    likeCount: '12'
-  }
+  var comments = [
+    {
+      src: 'assets/img/avatar.png', 
+      author: 'Мурад Сарафанов', 
+      text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.', 
+      date: '5 дней', 
+      likeCount: '12',
+      isLiked: '_liked'
+    },{
+      src: 'assets/img/avatar-2.png', 
+      author: 'Патрисия Стёклышкова', 
+      text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент', 
+      date: 'Неделю', 
+      likeCount: '2',
+      isLiked: ''
+    }
+  ]
 mixin comment(commentInf)
   .comment
     .comment__title
@@ -13,5 +24,5 @@ mixin comment(commentInf)
       h3.title__author= commentInf.author
         span.title__date #{commentInf.date} назад 
     .comment__body
-      +like-button(commentInf.likeCount)(id="comment-like", class="liked")
+      +like-button(commentInf.likeCount)(class= commentInf.isLiked)
       p.body__text= commentInf.text

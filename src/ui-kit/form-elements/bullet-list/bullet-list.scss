@@ -1,18 +1,15 @@
 .bullet-list {
   &__caption {
-    display: block;
-    font-family: $mainFont;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
     color: $dark-shade-100;
-    margin-bottom: 5px;
+    padding-left: 20px;
+    margin-bottom: 20px;
   }
   &__li {
     position: relative;
     width: 266px;
     padding-left: 20px;
+    margin-bottom: 10px;
+    &:last-child {margin-bottom: 0;}
   }
   &__li:before {
     position: absolute;

@@ -2,12 +2,12 @@
   var bulletList = [
     {title: 'Нельзя с питомцами'},
     {title: 'Без вечеринок и мероприятия'},
-    {title: 'время прибытия - после 13:00, а выезд до 12:00'}
+    {title: 'Время прибытия — после 13:00, а выезд до 12:00'}
   ]
 
 mixin bullet-list(caption, bulletList)
   .bullet-list
-    h3.bullet-list__caption= caption
+    h2.bullet-list__caption= caption
     ul
       - for(i = 0; i < bulletList.length; i++){
           li.bullet-list__li= bulletList[i].title

@@ -1,0 +1,11 @@
+-
+  var roomInfData = [
+    {src: 'assets/img/smile.png', title: 'Комфорт', desc: 'Шумопоглощающие стены'},
+    {src: 'assets/img/location_city.png', title: 'Удобство', desc: 'Окно в каждой из спален'},
+    {src: 'assets/img/whatshot.png', title: 'Уют', desc: 'Номер оснащен камином'}
+  ]
+mixin room-information(infList)
+  .room-information
+    img.room-information__icon(src= infList.src, alt="icon")
+    h3.room-information__title= infList.title
+      span.room-information__desc #{infList.desc}

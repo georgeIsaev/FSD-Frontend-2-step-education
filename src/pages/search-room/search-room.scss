@@ -209,14 +209,14 @@ footer {
   flex: 0 0 auto;
 }
 
-#datepickers-container .datepicker {
+.datepicker.date-start-end-filter {
   width: 266px;
-  &--content .datepicker--days-names,
-  &--content .datepicker--cells.datepicker--cells-days {
+  .datepicker--content .datepicker--days-names,
+  .datepicker--content .datepicker--cells.datepicker--cells-days {
     width: 100%;
   }
-  &--content .datepicker--day-name,
-  &--content .datepicker--cell-day {
+  .datepicker--content .datepicker--day-name,
+  .datepicker--content .datepicker--cell-day {
     width: 32px;
     height: 32px;
   }
@@ -236,8 +236,8 @@ footer {
   }
   @media screen and (min-width: 1281px) and (max-width: 1459px) {
     width: 260px;
-    &--content .datepicker--day-name,
-    &--content .datepicker--cell-day {
+    .datepicker--content .datepicker--day-name,
+    .datepicker--content .datepicker--cell-day {
       width: 31px;
       height: 31px;
     }
