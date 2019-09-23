@@ -44,8 +44,52 @@
           }
         }
 
-        .impressions {
-          svg {
+        .impressions__chart {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          /////
+          .chart__votes-count {
+            .bad,
+            .passably,
+            .good,
+            .magnificently {
+              display: none;
+              position: absolute;
+              content: '';
+              width: 80px;
+              height: 50px;
+              top: 35px;
+              left: 20px;
+              text-align: center;
+              text-transform: uppercase;
+              font-weight: bold;
+              p {font-size: 12px; line-height: 15px;}
+            }
+            .bad h1, .bad p {color: #3D4975;}
+            .passably h1, .passably p {color: $purple;}
+            .good h1, .good p {color: $green;}
+            .magnificently h1, .magnificently p {color: #FFBA9C;}
+          }
+          .chart__legend {
+            display: flex;
+            align-items: flex-end;
+            margin-left: 30px;
+            padding-left: 15px;
+            ul li {position: relative;}
+            ul li::before {
+              position: absolute;
+              content: '';
+              width: 10px;
+              height: 10px;
+              left: -15px;
+              top: 7px;
+              border-radius: 50%;
+            }
+            li.legend__magnificently::before {background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);}
+            li.legend__good::before {background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);}
+            li.legend__passably::before {background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);}
+            li.legend__bad::before {background: linear-gradient(180deg, #919191 0%, #3D4975 100%);}
           }
         }
       }

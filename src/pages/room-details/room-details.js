@@ -31,8 +31,10 @@ $(document).ready(() => {
           'r' : '55',
           'stroke-dasharray': `${arcLength(value, 345.4) - 2} 345.4`,
           'stroke-width': '10',
-          'stroke-dashoffset': offset2
+          'stroke-dashoffset': offset2,
+          'cursor': 'pointer'
         })
+        $('.chart__votes-count').find(sel).css('display', 'block')
       }, function() {
         $(this).css({
           'r' : '58',
@@ -40,6 +42,7 @@ $(document).ready(() => {
           'stroke-width': '4',
           'stroke-dashoffset': offset
         })
+        $('.chart__votes-count').find(sel).css('display', 'none')
       }
     )
   }
