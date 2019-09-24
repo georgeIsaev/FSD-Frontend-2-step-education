@@ -8,39 +8,65 @@ footer {box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);}
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 100px 0;
+  padding: 100px 0 96px;
 }
 
 .footer__body .container{
   .logo-desc {
-    width: 20%;
+    padding-top: 2px;
+    width: 22.4%;
+    margin-right: 3.4%;
     .desc {
-      margin-top: 20px;
+      margin-top: 17px;
+      letter-spacing: -.1;
     }
   }
 
-  .subscribe {width: 20%;}
+  .navigation,
+  .about,
+  .support,
+  .subscribe {
+    padding-top: 6px;
+  }
+  .navigation {width: 12.4%;margin-right: 4.9%;}
+  .about {width: 9.3%;margin-right: 7.9%;}
+  .support {width: 12.9%;margin-right: 4.4%;}
+  .subscribe {width: 22.4%;}
+
   .list__titles {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
+    &:first-child {margin-bottom: 19px;}
+    &:last-child {margin-bottom: 0;}
     h3 {
       letter-spacing: normal;
       text-transform: uppercase;
-      margin-bottom: 21px;
+      word-spacing: -1;
     }
     a {
       line-height: 17px;
       color: $dark-shade-50;
+      word-spacing: -1;
     }
-    &:last-child {margin-bottom: 0;}
+  }
+  .subscribe {
+    .list__titles {
+      margin-bottom: 22px;
+      &:first-child {margin-bottom: 18px;}
+      p {
+        line-height: 24px;
+        letter-spacing: -.1;
+        word-spacing: -.8;
+      }
+    }
   }
 }
 
 .footer__copyright .container{
-  padding: 25px 0;
+  padding: 24px 0;
   .copyright {
     display: flex;
     align-items: center;
-    p {line-height: 17px;}
+    p {line-height: 17px; letter-spacing: -.1;word-spacing: -.3;}
   }
   .social {
     display: flex;

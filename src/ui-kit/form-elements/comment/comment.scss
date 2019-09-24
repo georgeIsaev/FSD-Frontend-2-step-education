@@ -12,7 +12,7 @@
 
   &__title {
     .title__avatar {
-      widows: 48px;
+      width: 47.67px;
       height: 48px;
       margin-right: 9px;
       margin-bottom: 10px;
@@ -22,10 +22,12 @@
     .title__author {
       display: flex;
       flex-direction: column;
-      padding-top: 2px;
+      padding-top: 1px;
       font-size: 14px;
       line-height: 24px;
       color: $dark-shade-75;
+      letter-spacing: .15;
+      word-spacing: -.6;
     }
     .title__date {
       font-weight: normal;
@@ -38,8 +40,9 @@
       margin-top: 2px;
     }
     .body__text {
-      width: 663px;
+      width: 655px;
       font-size: 14px;
+      word-spacing: -.8;
     }
   }
 }

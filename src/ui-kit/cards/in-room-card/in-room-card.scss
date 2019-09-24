@@ -28,7 +28,7 @@
         line-height: 17px;
         color: $dark-shade-100;
         margin-right: 4px;
-        padding-bottom: 1px;
+        padding-bottom: 2px;
       }
       &.luxury:after {
         position: absolute;
@@ -41,10 +41,11 @@
         text-transform: uppercase;
         color: #BC9CFF;
         bottom: 3px;
-        right: -45px;
+        right: -43px;
       }
     }
     .room-price {
+      padding-top: 10px;
       span {
         font-style: normal;
         font-weight: bold;
@@ -67,6 +68,7 @@
   .total-cost {
     margin-bottom: 20px;
   }
+  .iqdropdown {margin-bottom: 18px;}
 
   .cost-calculation ul>li, 
   .total-cost {
@@ -92,9 +94,9 @@
     .extra-serv-price {
       position: relative;
       width: 225px;
-      word-wrap: break-word;
-      text-overflow: ellipsis;
+      word-spacing: -.5;
     }
+    .extra-serv-price {line-height: 19px;}
 
     .serv-price,
     .extra-serv-price {
@@ -102,7 +104,7 @@
         position: absolute;
         content: 'i';
         top: 2px;
-        right: -17px;
+        right: -14px;
         width: 20px;
         height: 20px;
 
@@ -119,14 +121,28 @@
         cursor: pointer;
       }
     }
+    .serv-price::after {top:0;}
   }
 
   .total-cost {
     .line {
-      width: 56.9%;
+      width: 57.9%;
       margin-bottom: 5px;
       border-bottom: 1px dotted $dark-shade-25;
     }
+    .total-price {letter-spacing: .1}
   }
-
+}
+@media screen and (min-width: '320px') and (max-width: '380px') {
+  .in-room-card {
+    width: 320px;
+    padding: 30px 15px 20px;
+    .date-dropdown .date-dropdown__start,
+    .date-dropdown .date-dropdown__end,
+    .date-dropdown__input {
+      width: 139px;
+    }
+    .date-dropdown .date-dropdown__start {margin-right: 10px;}
+    .iqdropdown .iqdropdown__input-btn, .btn.btn_type_lg {width: 288px;}
+  }
 }

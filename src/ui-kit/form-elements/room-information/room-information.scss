@@ -1,10 +1,11 @@
 .room-information {
   display: flex;
   flex-direction: row;
+  width: 280px;
   &__icon {
-    width: 42px;
-    height: 42px;
-    margin-right: 10px;
+    width: 41px;
+    height: 41px;
+    margin-right: 15px;
   }
   &__title {
     display: flex;
@@ -13,8 +14,12 @@
     font-size: 14px;
     line-height: 24px;
     color: $dark-shade-75;
+    letter-spacing: .2;
   }
   &__desc {
     font-weight: normal;
+    font-size: 13px;
+    word-spacing: .3;
+    letter-spacing: .5;
   }
 }
