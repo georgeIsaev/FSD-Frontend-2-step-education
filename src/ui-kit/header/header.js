@@ -18,6 +18,6 @@ $(document).ready(() => {
 
   let logo = $('.menu__logo').find('img')
   if ($(window).width() < 481) {
-    logo.prop("src", "../../assets/img/logo_min.svg")
+    logo.prop("src", "/assets/img/logo_min.svg")
   }
 })

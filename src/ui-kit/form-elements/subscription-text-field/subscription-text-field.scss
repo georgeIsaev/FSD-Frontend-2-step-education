@@ -23,7 +23,7 @@
     cursor: pointer;
   }
   .glyphicon_next {
-    background: url("assets/img/css_sprites.png") no-repeat -94px -128px;
+    background: url($cssSprites) no-repeat -94px -128px;
   }
 
   &__input {

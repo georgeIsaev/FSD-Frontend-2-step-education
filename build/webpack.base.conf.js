@@ -15,7 +15,8 @@ const PATHS = {
 // Pages const for HtmlWebpackPlugin
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 // const PAGES_DIR = PATHS.src
-const PAGES_DIR = `${PATHS.src}/pages/`
+const PAGES_DIR = `${PATHS.src}/pages`
+const PAGES = ['home', 'room-details', 'search-room', 'signIn', 'signUp']
 
 module.exports = {
   // BASE config
@@ -113,31 +114,9 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery'
     }),
-
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}home/home.pug`,
-      filename: 'home.html',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}room-details/room-details.pug`,
-      filename: 'room-details.html',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}search-room/search-room.pug`,
-      filename: 'search-room.html',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}signIn/signIn.pug`,
-      filename: 'signIn.html',
-      inject: true
-    }),
-    new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}signUp/signUp.pug`,
-      filename: 'signUp.html',
-      inject: true
-    })
+    ...PAGES.map(page => new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}/${page}/${page}.pug`,
+      filename: `./${page}.html` 
+    }))
   ]
 }

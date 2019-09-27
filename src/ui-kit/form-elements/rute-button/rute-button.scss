@@ -9,7 +9,7 @@
   label, 
   label:hover, 
   label:hover ~ label {
-    background: url("assets/img/css_sprites.png") no-repeat;
+    background: url($cssSprites) no-repeat;
   }
 
   input {

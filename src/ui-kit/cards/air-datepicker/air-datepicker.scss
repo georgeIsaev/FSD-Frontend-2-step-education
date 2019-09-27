@@ -43,12 +43,12 @@
       }
       width: 18px;
       height: 18px;
-      background: url("assets/img/css_sprites.png") no-repeat -94px -128px;
+      background: url($cssSprites) no-repeat -94px -128px;
       &:first-child {
         transform: rotate(180deg);
       }
       &:hover {
-        background: url("assets/img/css_sprites.png") no-repeat -94px -128px;
+        background: url($cssSprites) no-repeat -94px -128px;
       }
     }
   }
