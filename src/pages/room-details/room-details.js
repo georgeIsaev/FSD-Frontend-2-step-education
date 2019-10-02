@@ -27,8 +27,8 @@ $(document).ready(() => {
   function chartHover (sel, value, offset, offset2){
     $(sel).hover(
       function() {
-        $(this).css({
-          'r' : '55',
+        $(this).attr({
+          'r': '55',
           'stroke-dasharray': `${arcLength(value, 345.4) - 2} 345.4`,
           'stroke-width': '10',
           'stroke-dashoffset': offset2,
@@ -36,12 +36,12 @@ $(document).ready(() => {
         })
         $('.chart__votes-count').find(sel).css('display', 'block')
       }, function() {
-        $(this).css({
-          'r' : '58',
+        $(this).attr({
+          'r': '58',
           'stroke-dasharray': `${arcLength(value, 364.24) - 2} 364.24`,
           'stroke-width': '4',
           'stroke-dashoffset': offset
-        })
+        }) // Fixed to Firefox
         $('.chart__votes-count').find(sel).css('display', 'none')
       }
     )

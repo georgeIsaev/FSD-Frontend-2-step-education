@@ -2,21 +2,18 @@
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#import-js-files
 @font-face {
   font-family: "Quicksand";
-  src: url('/assets/fonts/Quicksand/Quicksand-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
-  font-weight: 700;
-  font-style: normal;
+  src: url('/assets/fonts/Quicksand/Quicksand-Bold.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/Quicksand/Quicksand-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/Quicksand/Quicksand-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/fonts/Quicksand/Quicksand-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/assets/fonts/Quicksand/Quicksand-Bold.svg') format('svg'); /* Legacy iOS */
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url('/assets/fonts/Montserrat/Montserrat-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */    
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url('/assets/fonts/Montserrat/Montserrat-Medium.ttf')  format('truetype'); /* Safari, Android, iOS */
-  font-weight: normal;
-  font-style: normal;
+  src: url('/assets/fonts/Montserrat/Montserrat-Medium.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/Montserrat/Montserrat-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/Montserrat/Montserrat-Medium.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/fonts/Montserrat/Montserrat-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/assets/fonts/Montserrat/Montserrat-Medium.svg') format('svg'); /* Legacy iOS */
 }

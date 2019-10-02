@@ -9,7 +9,8 @@ const webpack = require('webpack')
 const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../dist'),
-  assets: 'assets/'
+  assets: 'assets/',
+  static: 'static/'
 }
 
 // Pages const for HtmlWebpackPlugin
@@ -107,7 +108,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
-      { from: `${PATHS.src}/static`, to: '' },
+      { from: `${PATHS.src}/static`, to: `${PATHS.static}` },
     ]),
     new webpack.ProvidePlugin ({
       $: 'jquery',
